@@ -72,11 +72,7 @@ class Category extends Component
             'name' => 'required',
             'is_active' => 'required',
         ]);
-        if(!$this->CategoryId){
-            $this->validate([
-                'image1' => 'required',
-            ]);
-        }
+      
         if ($this->CategoryId) {
             $Query = ProductInfoCategory::find($this->CategoryId);
         } else {

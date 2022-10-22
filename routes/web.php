@@ -253,13 +253,6 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('order-edit/{id?}', OrderEdit::class)->name('order-edit');
         });
 
-        Route::group(['prefix' => 'transaction', 'as' => 'transaction.'], function () {
-            Route::get('payment', Payment::class)->name('payment');
-            Route::get('customer-payment/{id?}', CustomerPayment::class)->name('customer-payment');
-            Route::get('supplier-payment/{id?}', SupplierPayment::class)->name('supplier-payment');
-            Route::get('customer-payment-report', CustomerPaymentReport::class)->name('customer-payment-report');
-            Route::get('supplier-payment-report', SupplierPaymentReport::class)->name('supplier-payment-report');
-        });
         Route::group(['prefix' => 'order',  'as' => 'order.'], function () {
             // Route::get('order-list/{id?}', OrderList::class)->name('order-list');
             Route::get('order-invoice/{id}', OrderInvoice::class)->name('order-invoice');
@@ -275,11 +268,6 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('all-user-list', AllUserList::class)->name('all-user-list');
         });
 
-        Route::group(['prefix' => 'report', 'as' => 'report.'], function () {
-            Route::get('stock-report', StockReport::class)->name('stock-report');
-            Route::get('order-report', OrderReport::class)->name('order-report');
-        });
-
         Route::group(['prefix' => 'vendor', 'as' => 'vendor.'], function () {
             Route::get('vendor-list', VendorList::class)->name('vendor-list');
             Route::get('vendor-approved-list', VendorApprovedList::class)->name('vendor-approved-list');
@@ -292,57 +280,6 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('user-table', [DatatableController::class, 'UserTable'])->name('user_table');
         });
 
-        Route::group(['prefix' => 'report', 'as' => 'report.'], function () {
-            Route::get('stock-adjustment-report', StockAdjustmentReport::class)->name('stock-adjustment-report');
-            Route::get('purchase-return-report', PurchaseReturnReport::class)->name('purchase-return-report');
-            Route::get('sales-return-report', SalesReturnReport::class)->name('sales-return-report');
-            Route::get('coupons-report', CouponsReport::class)->name('coupons-report');
-            Route::get('profit-loss', ProfitLoss::class)->name('profit-loss');
-        });
-
-        // Start Report
-        Route::group(['prefix' => 'report', 'as' => 'report.'], function () {
-
-            Route::get('purchase-report-new', [ReportController::class, 'PurchaseReport'])->name('purchase-report-new');
-            Route::get('purchase-report-data', [ReportController::class, 'PurchaseReportDate'])->name('purchase-report-data');
-
-            Route::get('sale-report-new', [ReportController::class, 'SaleReport'])->name('sale-report-new');
-            Route::get('sale-report-data', [ReportController::class, 'SaleReportData'])->name('sale-report-data');
-
-            Route::get('purchase-details-report-new', [ReportController::class, 'PurchaseDetailReport'])->name('purchase-details-report-new');
-            Route::get('purchase-details-report-data', [ReportController::class, 'PurchaseDetailReportData'])->name('purchase-details-report-data');
-
-            Route::get('cash-bank-book-report-new', [ReportController::class, 'CashBankBookReport'])->name('cash-bank-book-report-new');
-            Route::get('cash-bank-book-report-data', [ReportController::class, 'CashBankBookReportData'])->name('cash-bank-book-report-data');
-
-            Route::get('sale-details-report-new', [ReportController::class, 'SaleDetailReport'])->name('sale-details-report-new');
-            Route::get('sale-details-report-data', [ReportController::class, 'SaleDetailReportData'])->name('sale-details-report-data');
-
-            Route::get('stock-report-new', [ReportController::class, 'StockReport'])->name('stock-report-new');
-            Route::get('stock-report-data', [ReportController::class, 'StockReportData'])->name('stock-report-data');
-
-            Route::get('customer-ledger-report-new', [ReportController::class, 'CustomerLedgerReport'])->name('customer-ledger-report-new');
-            Route::get('customer-ledger-report-data', [ReportController::class, 'CustomerLedgerReportData'])->name('customer-ledger-report-data');
-
-            Route::get('supplier-ledger-report-new', [ReportController::class, 'SupplierLedgerReport'])->name('supplier-ledger-report-new');
-            Route::get('supplier-ledger-report-data', [ReportController::class, 'SupplierLedgerReportData'])->name('supplier-ledger-report-data');
-
-            Route::get('customer-due-report-new', [ReportController::class, 'CustomerDueReport'])->name('customer-due-report-new');
-            Route::get('customer-due-report-data', [ReportController::class, 'CustomerDueReportData'])->name('customer-due-report-data');
-
-            Route::get('supplier-due-report-new', [ReportController::class, 'SupplierDueReport'])->name('supplier-due-report-new');
-            Route::get('supplier-due-report-data', [ReportController::class, 'SupplierDueReportData'])->name('supplier-due-report-data');
-
-            Route::get('profit-loss-report-new', [ReportController::class, 'ProfitLossReport'])->name('profit-loss-report-new');
-            Route::get('profit-loss-report-data', [ReportController::class, 'ProfitLossReportData'])->name('profit-loss-report-data');
-
-            Route::get('receivable-report-new', [ReportController::class, 'ReceivableReport'])->name('receivable-report-new');
-            Route::get('receivable-report-data', [ReportController::class, 'ReceivableReportData'])->name('receivable-report-data');
-
-            Route::get('payable-report-new', [ReportController::class, 'PayableReport'])->name('payable-report-new');
-            Route::get('payable-report-data', [ReportController::class, 'PayableReportData'])->name('payable-report-data');
-        });
-        // End Report
         Route::group(['prefix' => 'data', 'as' => 'data.'], function () {
             Route::get('category_table', [DatatableController::class, 'CategoryTable'])->name('category_table');
             Route::get('sub_category_table', [DatatableController::class, 'SubCategoryTable'])->name('sub_category_table');

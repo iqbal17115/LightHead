@@ -65,9 +65,9 @@
                                     @error('name') <span class="error">{{ $message }}</span> @enderror
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label class="control-label">Image 1 (221*179 jpg)</label>
+                                    <label class="control-label">Image (221*179 jpg)</label>
                                     <div class="custom-file">
                                         {{-- <input type="file" wire:model.lazy="image" class="custom-file-input"
                                             id="customFile"> --}}
@@ -84,32 +84,6 @@
                                         <img src="{{ $image1->temporaryUrl() }}" style="height:100px; weight:100px;"
                                             alt="Image" class="img-circle img-fluid">
                                         @endif
-                                        {{-- <label class="custom-file-label" for="customFile">Choose file</label> --}}
-                                    </div>
-                                    @error('image1') <span class="error">{{ $message }}</span> @enderror
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label class="control-label">Image 2 (221*179 jpg)</label>
-                                    <div class="custom-file">
-                                        {{-- <input type="file" wire:model.lazy="image" class="custom-file-input"
-                                            id="customFile"> --}}
-
-                                        <input type="file" wire:model.lazy="image2" x-ref="image2">
-                                        @if (!$image2)
-                                        @if($QueryUpdate)
-                                        <img src="{{ asset('storage/photo/'.$QueryUpdate->image2)}}"
-                                            style="height:100px; weight:100px;" alt="Image2"
-                                            class="img-circle img-fluid">
-                                        @endif
-                                        @endif
-                                        @if ($image2)
-                                        <img src="{{ $image2->temporaryUrl() }}" style="height:100px; weight:100px;"
-                                            alt="Image" class="img-circle img-fluid">
-                                        @endif
-                                        {{-- <label class="custom-file-label" for="customFile">Choose file</label> --}}
                                     </div>
                                 </div>
                             </div>
@@ -218,14 +192,9 @@
                         name:  'name'
                     },
                     {
-                        title: 'Image1',
+                        title: 'Image',
                         data:  'image1',
                         name:  'image1'
-                    },
-                    {
-                        title: 'Image2',
-                        data:  'image2',
-                        name:  'image2'
                     },
                     {
                         title: 'Status',
