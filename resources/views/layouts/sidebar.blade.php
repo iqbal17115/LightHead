@@ -47,6 +47,9 @@
 
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('setting.slider')}}">Slider</a></li>
+                        <li><a href="{{route('setting.how_we_will_help')}}">How We Will Help</a></li>
+                        <li><a href="{{route('setting.who_trust')}}">Who Trust</a></li>
+                        <li><a href="{{route('setting.affiliation')}}">Affiliation</a></li>
                         <li><a href="{{route('setting.companyinfo')}}">Company Info</a></li>
                         <li><a href="{{route('setting.currency')}}">Currency</a></li>
                     </ul>

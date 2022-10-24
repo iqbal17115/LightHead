@@ -54,6 +54,9 @@ use App\Http\Livewire\Backend\Setting\PaymentMethod;
 use App\Http\Livewire\Backend\Setting\PointPolicy;
 use App\Http\Livewire\Backend\Setting\ShippingCharge;
 use App\Http\Livewire\Backend\Setting\Slider;
+use App\Http\Livewire\Backend\Setting\HowWeWillHelp;
+use App\Http\Livewire\Backend\Setting\WhoTrust;
+use App\Http\Livewire\Backend\Setting\Affiliation;
 use App\Http\Livewire\Backend\Setting\Vat;
 use App\Http\Livewire\Backend\Setting\Warehouse;
 use App\Http\Livewire\Backend\Setting\Language;
@@ -153,24 +156,17 @@ Route::get('contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('about', [HomeController::class, 'About'])->name('about');
 Route::get('privacy-policy', [HomeController::class, 'PrivacyPolicy'])->name('privacy-policy');
 Route::get('terms-condition', [HomeController::class, 'TermsAndCondition'])->name('terms-condition');
-// Route::get('change-password', [HomeController::class, 'ChangePassword'])->name('change-password');
-// Route::get('/search-category-wise/{id?}', [HomeController::class, 'searchByCategory'])->name('search-category-wise');
 Route::get('category', FrontEndCategory::class)->name('category');
 Route::get('sign-in', SignIn::class)->name('sign-in');
 Route::get('sign-up', SignUp::class)->name('sign-up');
 Route::get('log-in', LogIn::class)->name('log-in');
-//Route::get('cart', Cart::class)->name('cart');
-//Route::get('check-out', Checkout::class)->name('check-out');
 Route::get('contact-us', ContactUs::class)->name('contact-us');
-// Route::get('terms-conditios', TermsConditios::class)->name('terms-conditios');
 Route::get('my-profile', MyProfile::class)->name('my-profile');
 Route::get('return-policy', ReturnPolicy::class)->name('return-policy');
 Route::get('message', Message::class)->name('message');
 
 
-// Route::get('about', AboutUs::class)->name('about');
 Route::get('error', Error::class)->name('error');
-// Route::get('order-completed', OrderCompleted::class)->name('order-completed');
 
 Route::get('wish-list', Wishlist::class)->name('wish-list');
 Route::Post('customer_sign_in', [LoginController::class, 'authenticate'])->name('customer_sign_in');
@@ -236,6 +232,9 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('shipping-charge', ShippingCharge::class)->name('shipping-charge');
             Route::get('warehouse', Warehouse::class)->name('warehouse');
             Route::get('slider', Slider::class)->name('slider');
+            Route::get('how_we_will_help', HowWeWillHelp::class)->name('how_we_will_help');
+            Route::get('who_trust', WhoTrust::class)->name('who_trust');
+            Route::get('affiliation', Affiliation::class)->name('affiliation');
             Route::get('point-policy', PointPolicy::class)->name('point-policy');
             Route::get('breaking-news', BreakingNews::class)->name('breaking-news');
             Route::get('language', Language::class)->name('language');
@@ -254,10 +253,7 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
         });
 
         Route::group(['prefix' => 'order',  'as' => 'order.'], function () {
-            // Route::get('order-list/{id?}', OrderList::class)->name('order-list');
             Route::get('order-invoice/{id}', OrderInvoice::class)->name('order-invoice');
-            // Route::get('order-cancel', CancelOrderList::class)->name('order-cancel');
-            // Route::get('print-order', PrintOrder::class)->name('print-order');
         });
 
         Route::group(['prefix' => 'contact-info', 'as' => 'contact-info.'], function () {
@@ -292,6 +288,9 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('unit_table', [DatatableController::class, 'UnitTable'])->name('unit_table');
             Route::get('feature_product_table', [DatatableController::class, 'FeatureProductTable'])->name('feature_product_table');
             Route::get('slider_table', [DatatableController::class, 'SliderTable'])->name('slider_table');
+            Route::get('how_we_will_help_table', [DatatableController::class, 'HowWeWillHelpTable'])->name('how_we_will_help_table');
+            Route::get('who_trust_table', [DatatableController::class, 'WhoTrustTable'])->name('who_trust_table');
+            Route::get('affiliation_table', [DatatableController::class, 'AffiliationTable'])->name('affiliation_table');
             Route::get('brand_table', [DatatableController::class, 'BrandTable'])->name('brand_table');
             Route::get('invoiceSetting_table', [DatatableController::class, 'InvoiceSettingTable'])->name('invoiceSetting_table');
             Route::get('vat_table', [DatatableController::class, 'VatTable'])->name('vat_table');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePermissionCategoriesTable extends Migration
+class CreateAffiliationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreatePermissionCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('permission_categories', function (Blueprint $table) {
+        Schema::create('affiliations', function (Blueprint $table) {
             $table->id();
-            $table->string('title',191)->nullable();
-            $table->string('name',191)->nullable();
-            $table->enum('status', ['Active','Inactive']);
+            $table->string('code', 191);
+            $table->text('image')->nullable();
+            $table->boolean('is_active')->nullable()->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +30,6 @@ class CreatePermissionCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permission_categories');
+        Schema::dropIfExists('affiliations');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubSubCategoriesTable extends Migration
+class CreateWhoTrustsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreateSubSubCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sub_sub_categories', function (Blueprint $table) {
+        Schema::create('who_trusts', function (Blueprint $table) {
             $table->id();
             $table->string('code', 191);
-            $table->string('name', 191);
             $table->text('image')->nullable();
-            $table->text('description')->nullable();
-            $table->foreignId('sub_category_id');
-            $table->foreignId('user_id');
-            $table->foreignId('branch_id');
-            $table->enum('status', ['Active', 'Inactive'])->nullable();
+            $table->boolean('is_active')->nullable()->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -35,6 +30,6 @@ class CreateSubSubCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_sub_categories');
+        Schema::dropIfExists('who_trusts');
     }
 }

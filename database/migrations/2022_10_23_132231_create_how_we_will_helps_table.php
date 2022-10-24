@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDeliveryMethodsTable extends Migration
+class CreateHowWeWillHelpsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateDeliveryMethodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('delivery_methods', function (Blueprint $table) {
+        Schema::create('how_we_will_helps', function (Blueprint $table) {
             $table->id();
-            $table->string('code', 100);
-            $table->string('name',100);
-            $table->string('address',100);
-            $table->string('branch_name');
+            $table->string('code', 191);
+            $table->text('image')->nullable();
+            $table->string('name', 191);
+            $table->string('title', 191);
+            $table->boolean('is_active')->nullable()->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +32,6 @@ class CreateDeliveryMethodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('delivery_methods');
+        Schema::dropIfExists('how_we_will_helps');
     }
 }
