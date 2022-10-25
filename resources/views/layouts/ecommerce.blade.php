@@ -19,34 +19,53 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('porto/assets/images/icons/favicon.png') }}">
 
-    <script>
-        WebFontConfig = {
-            google: {
-                families: ['Open+Sans:300,400,600,700,800', 'Poppins:300,400,500,600,700,800',
-                    'Segoe+Script:300,400,500,600,700,800', 'Lato:300,400,500,600,700,800'
-                ]
-            }
-        };
-        (function(d) {
-            var wf = d.createElement('script'),
-                s = d.scripts[0];
-            wf.src = 'assets/js/webfont.js';
-            wf.async = true;
-            s.parentNode.insertBefore(wf, s);
-        })(document);
-    </script>
 
-    <!-- Plugins CSS File -->
-    <link rel="stylesheet" href="{{ URL::asset('porto/') }}/assets/css/bootstrap.min.css">
-    <!-- Main CSS File -->
-    <link rel="stylesheet" href="{{ asset('porto/assets/css/style.min.css') }}">
-    <!-- Main CSS File -->
-    <link rel="stylesheet" href="{{ URL::asset('porto/') }}/assets/css/demo40.min.css">
-    <link rel="stylesheet" type="text/css"
-        href="{{ URL::asset('porto/') }}/assets/vendor/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" type="text/css"
-        href="{{ URL::asset('porto/') }}/assets/vendor/simple-line-icons/css/simple-line-icons.min.css">
-        <link rel="stylesheet" href="{{ asset('porto/assets/css/custom_style.css') }}">
+        <!-- New  -->
+        <meta charset="utf-8">
+    <meta name="keywords" content="html5 template, best html5 template, best html template, html5 basic template, multipurpose html5 template, multipurpose html template, creative html templates, creative html5 templates" />
+    <meta name="description" content="SuperMarket is a powerful Multi-purpose HTML5 Template with clean and user friendly design. It is definite a great starter for any eCommerce web project." />
+    <meta name="author" content="Magentech">
+    <meta name="robots" content="index, follow" />
+   
+    <!-- Mobile specific metas
+    ============================================ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Favicon
+    ============================================ -->
+    <link rel="shortcut icon" type="image/png" href="ico/favicon-16x16.png"/>
+  
+   
+    <!-- Libs CSS
+    ============================================ -->
+    <link rel="stylesheet" href="{{ URL::asset('supermarket/') }}/css/bootstrap/css/bootstrap.min.css">
+    <link href="{{ URL::asset('supermarket/') }}/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ URL::asset('supermarket/') }}/js/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="{{ URL::asset('supermarket/') }}/js/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="{{ URL::asset('supermarket/') }}/css/themecss/lib.css" rel="stylesheet">
+    <link href="{{ URL::asset('supermarket/') }}/js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <link href="{{ URL::asset('supermarket/') }}/js/minicolors/miniColors.css" rel="stylesheet">
+    
+    <!-- Theme CSS
+    ============================================ -->
+    <link href="{{ URL::asset('supermarket/') }}/css/themecss/so_searchpro.css" rel="stylesheet">
+    <link href="{{ URL::asset('supermarket/') }}/css/themecss/so_megamenu.css" rel="stylesheet">
+    <link href="{{ URL::asset('supermarket/') }}/css/themecss/so-categories.css" rel="stylesheet">
+    <link href="{{ URL::asset('supermarket/') }}/css/themecss/so-listing-tabs.css" rel="stylesheet">
+    <link href="{{ URL::asset('supermarket/') }}/css/themecss/so-category-slider.css" rel="stylesheet">
+    <link href="{{ URL::asset('supermarket/') }}/css/themecss/so-newletter-popup.css" rel="stylesheet">
+
+    <link href="{{ URL::asset('supermarket/') }}/css/footer/footer1.css" rel="stylesheet">
+    <link href="{{ URL::asset('supermarket/') }}/css/header/header1.css" rel="stylesheet">
+    <link id="color_scheme" href="{{ URL::asset('supermarket/') }}/css/theme.css" rel="stylesheet"> 
+    <link href="{{ URL::asset('supermarket/') }}/css/responsive.css" rel="stylesheet">
+
+     <!-- Google web fonts
+    ============================================ -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css'>     
+    <style type="text/css">
+         body{font-family:'Poppins', sans-serif;}
+    </style>
 <style>
 .top-left {
   background-color: rgb(235, 43, 43);
@@ -61,10 +80,10 @@
 </style>
 </head>
 
-<body>
+<body class="common-home res layout-1">
 
     <!-- Scroll-top-end-->
-    <div class="page-wrapper">
+    <div id="wrapper" class="wrapper-fluid banners-effect-3">
         <!-- header-area -->
         @include('ecommerce.header')
         <!-- header-area-end -->
@@ -77,22 +96,36 @@
     </div>
 
     <!-- Start Mobile Responseive Footer -->
-    @include('ecommerce.mobile-responsive-footer')
+    @include('ecommerce.footer')
     <!-- Start Mobile Responseive Footer -->
+    
+<!-- Include Libs & Plugins
+============================================ -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/slick-slider/slick.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/themejs/libs.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/unveil/jquery.unveil.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/countdown/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/datetimepicker/moment.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/modernizr/modernizr-2.6.2.min.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/minicolors/jquery.miniColors.min.js"></script>
 
-    <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
+<!-- Theme files
+============================================ -->
 
-    <!-- Plugins JS File -->
-    <script src="{{ URL::asset('porto/') }}/assets/js/jquery.min.js"></script>
-    <script src="{{ URL::asset('porto/') }}/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ URL::asset('porto/') }}/assets/js/optional/isotope.pkgd.min.js"></script>
-    <script src="{{ URL::asset('porto/') }}/assets/js/plugins.min.js"></script>
-    <script src="{{ URL::asset('porto/') }}/assets/js/jquery.plugin.min.js"></script>
-    <script src="{{ URL::asset('porto/') }}/assets/js/jquery.appear.min.js"></script>
-    <script src="{{ URL::asset('porto/') }}/assets/js/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/themejs/application.js"></script>
 
-    <!-- Main JS File -->
-    <script src="{{ URL::asset('porto/') }}/assets/js/main.min.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/themejs/homepage.js"></script>
+
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/themejs/toppanel.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/themejs/so_megamenu.js"></script>
+<script type="text/javascript" src="{{ URL::asset('supermarket/') }}/js/themejs/addtocart.js"></script>  
     <script>
         $.ajaxSetup({
             crossDomain: true,
