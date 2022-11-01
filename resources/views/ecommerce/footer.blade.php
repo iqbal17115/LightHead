@@ -85,91 +85,23 @@
 
 
                     </div>
+                    @foreach($categories as $category)
                     <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 col-style">
                         <div class="box-information box-footer">
                             <div class="module clearfix">
-                                <h3 class="modtitle">Information</h3>
+                                <h3 class="modtitle">{{ $category->name }}</h3>
                                 <div class="modcontent">
                                     <ul class="menu">
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">FAQ</a></li>
-                                        <li><a href="#">Warranty And Services</a></li>
-                                        <li><a href="#">Support 24/7 page</a></li>
-                                        <li><a href="#">Product Registration</a></li>
-                                        <li><a href="#">Product Support</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 col-style">
-                        <div class="box-account box-footer">
-                            <div class="module clearfix">
-                                <h3 class="modtitle">My Account</h3>
-                                <div class="modcontent">
-                                    <ul class="menu">
-                                        <li><a href="#">Brands</a></li>
-                                        <li><a href="#">Gift Certificates</a></li>
-                                        <li><a href="#">Affiliates</a></li>
-                                        <li><a href="#">Specials</a></li>
-                                        <li><a href="#">FAQs</a></li>
-                                        <li><a href="#">Custom Link</a></li>
+                                        @foreach ($category->SubCategory as $subCategory)
+                                        <li><a href="#">{{ $subCategory->name }}</a></li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 col-clear">
-                        <div class="box-service box-footer">
-                          <div class="module clearfix">
-                            <h3 class="modtitle">Categories</h3>
-                            <div class="modcontent">
-                              <ul class="menu">
-                                <li><a href="#">Event & Party Supplies</a></li>
-                                <li><a href="#">Home Improvement</a></li>
-                                <li><a href="#">Lamps & Light Fixtures</a></li>
-                                <li><a href="#">Kitchen & Bath Fixtures</a></li>
-                                <li><a href="#">Customer Service</a></li>
-                                <li><a href="#">Kitchen & Dining</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 col-style">
-                        <div class="box-service box-footer">
-                            <div class="module clearfix">
-                                <h3 class="modtitle">Services</h3>
-                                <div class="modcontent">
-                                    <ul class="menu">
-                                        <li><a href="#">Contact Us</a></li>
-                                        <li><a href="#">Returns</a></li>
-                                        <li><a href="#">Support</a></li>
-                                        <li><a href="#">Site Map</a></li>
-                                        <li><a href="#">Customer Service</a></li>
-                                        <li><a href="#">Custom Link</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 col-style">
-                        <div class="box-service box-footer">
-                          <div class="module clearfix">
-                            <h3 class="modtitle">Categories</h3>
-                            <div class="modcontent">
-                              <ul class="menu">
-                                <li><a href="#">Event & Party Supplies</a></li>
-                                <li><a href="#">Home Improvement</a></li>
-                                <li><a href="#">Lamps & Light Fixtures</a></li>
-                                <li><a href="#">Kitchen & Bath Fixtures</a></li>
-                                <li><a href="#">Customer Service</a></li>
-                                <li><a href="#">Kitchen & Dining</a></li>
-                              </ul>
-                            </div>
-                          </div>
+                    @endforeach
+                  
                         </div>
                     </div>
 
