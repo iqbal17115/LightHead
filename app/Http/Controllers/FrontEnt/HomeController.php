@@ -15,6 +15,8 @@ use App\Models\Backend\ProductInfo\SubCategory;
 use App\Models\Backend\ProductInfo\SubSubCategory;
 use App\Models\Backend\ProductInfo\Product;
 use App\Models\Backend\Setting\ShippingCharge;
+use App\Models\Backend\Setting\HowWeWillHelp;
+use App\Models\Backend\Setting\WhoTrust;
 use App\Models\FrontEnd\AddToCard;
 use App\Models\FrontEnd\Order;
 use App\Models\FrontEnd\OrderDetail;
@@ -274,12 +276,16 @@ class HomeController extends Controller
         $topCategories = Category::skip(4)->take(200)->get();
         $sliderImages = Slider::orderBy('position')->whereIsActive(1)->get();
         $sliderImageDesc = Slider::orderBy('id', 'desc')->whereIsActive(1)->limit(2)->get();
+        $how_we_will_help = HowWeWillHelp::get();
+        $who_trust = WhoTrust::get();
         return view('ecommerce.home', [
             'data' => $data,
             'topFourCategories' => $topFourCategories,
             'topCategories' => $topCategories,
             'sliderImages' => $sliderImages,
             'sliderImageDesc' => $sliderImageDesc,
+            'how_we_will_helps' => $how_we_will_help,
+            'who_trusts' => $who_trust,
             'features' => ProductFeature::orderBy('position', 'ASC')->get(),
             'offers' => Offer::whereIsActive(1)->orderBy('id', 'DESC')->get()
         ]);

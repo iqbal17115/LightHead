@@ -66,6 +66,7 @@
     <style type="text/css">
          body{font-family:'Poppins', sans-serif;}
     </style>
+    
 <style>
 .top-left {
   background-color: rgb(235, 43, 43);
@@ -77,7 +78,20 @@
         margin-left: 80px;
     }
 }
+.heading-title {
+   
+ }
+ .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
 </style>
+
 </head>
 
 <body class="common-home res layout-1">
