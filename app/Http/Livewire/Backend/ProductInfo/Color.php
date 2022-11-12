@@ -9,6 +9,7 @@ class Color extends Component
     public $name;
     public $color_code;
     public $ColorId;
+    
     public function deleteColor($id){
         ColorInfo::find($id)->delete();
         $this->emit('success', [

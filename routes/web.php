@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\DatatableController;
 use App\Http\Controllers\FrontEnt\HomeController;
 use App\Http\Controllers\Frontend\CartController;
@@ -54,9 +53,12 @@ use App\Http\Livewire\Backend\Setting\PaymentMethod;
 use App\Http\Livewire\Backend\Setting\PointPolicy;
 use App\Http\Livewire\Backend\Setting\ShippingCharge;
 use App\Http\Livewire\Backend\Setting\Slider;
+use App\Http\Livewire\Backend\Setting\WhyWeAreDifferent;
 use App\Http\Livewire\Backend\Setting\HowWeWillHelp;
 use App\Http\Livewire\Backend\Setting\WhoTrust;
 use App\Http\Livewire\Backend\Setting\Affiliation;
+use App\Http\Livewire\Backend\ProductInfo\Package;
+use App\Http\Livewire\Backend\ProductInfo\Portfolio;
 use App\Http\Livewire\Backend\Setting\Vat;
 use App\Http\Livewire\Backend\Setting\Warehouse;
 use App\Http\Livewire\Backend\Setting\Language;
@@ -210,6 +212,8 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('category', Category::class)->name('category');
             Route::get('sub-category', SubCategory::class)->name('sub-category');
             Route::get('brand', Brand::class)->name('brand');
+            Route::get('package', Package::class)->name('package');
+            Route::get('portfolio', Portfolio::class)->name('portfolio');
             Route::get('product/{id?}', Product::class)->name('product');
             Route::get('product-list', ProductList::class)->name('product-list');
             Route::get('preview-product/{id?}', PreviewProduct::class)->name('preview-product');
@@ -232,6 +236,7 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('shipping-charge', ShippingCharge::class)->name('shipping-charge');
             Route::get('warehouse', Warehouse::class)->name('warehouse');
             Route::get('slider', Slider::class)->name('slider');
+            Route::get('why_we_are_different', WhyWeAreDifferent::class)->name('why_we_are_different');
             Route::get('how_we_will_help', HowWeWillHelp::class)->name('how_we_will_help');
             Route::get('who_trust', WhoTrust::class)->name('who_trust');
             Route::get('affiliation', Affiliation::class)->name('affiliation');
@@ -312,6 +317,8 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('vendor_cancel_table', [DatatableController::class, 'VendorCancelListTable'])->name('vendor_cancel_table');
             Route::get('all_user_table', [DatatableController::class, 'AllUserList'])->name('all_user_table');
             Route::get('offer_table', [DatatableController::class, 'OfferList'])->name('offer_table');
+            Route::get('package_table', [DatatableController::class, 'PackageTable'])->name('package_table');
+
         });
     });
 });

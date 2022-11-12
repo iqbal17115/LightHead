@@ -13,7 +13,7 @@
                         <span>Dashboards</span>
                     </a>
                 </li>
-              
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-list-ul"></i>
@@ -25,6 +25,8 @@
                         <li><a href="{{route('product.product-list')}}">All Product List</a></li>
                         <li><a href="{{route('product.category')}}">Category</a></li>
                         <li><a href="{{route('product.sub-category')}}">Sub Category</a></li>
+                        <li><a href="{{route('product.package')}}">Package</a></li>
+                        <li><a href="{{route('product.portfolio')}}">Portfolio</a></li>
                     </ul>
                 </li>
                 <li>
@@ -38,7 +40,7 @@
                         <li><a href="{{route('order.order-cancel')}}">Cancelled Order</a></li>
                     </ul>
                 </li>
-                
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-list-ul"></i>
@@ -47,6 +49,7 @@
 
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('setting.slider')}}">Slider</a></li>
+                        <li><a href="{{route('setting.why_we_are_different')}}">Why We are Different</a></li>
                         <li><a href="{{route('setting.how_we_will_help')}}">How We Will Help</a></li>
                         <li><a href="{{route('setting.who_trust')}}">Who Trust</a></li>
                         <li><a href="{{route('setting.affiliation')}}">Affiliation</a></li>
@@ -65,7 +68,7 @@
                     </ul>
                 </li>
 
-                
+
             </ul>
         </div>
         <!-- Sidebar -->
