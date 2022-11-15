@@ -58,9 +58,9 @@ class Product extends Component
     public $is_active = 1;
 
     public $product_image;
-    public $images = [];
-    public $selectedColors = [];
-    public $selectedSizes = [];
+    // public $images = [];
+    // public $selectedColors = [];
+    // public $selectedSizes = [];
     public $ProductId;
     public $QueryUpdate;
 
@@ -134,10 +134,10 @@ class Product extends Component
         $this->code = 'P' . floor(time() - 999999999);
     }
 
-    public function removeMe($index)
-    {
-        array_splice($this->images, $index, 1);
-    }
+    // public function removeMe($index)
+    // {
+    //     array_splice($this->images, $index, 1);
+    // }
 
     public function imageDelete($id)
     {
@@ -328,25 +328,25 @@ class Product extends Component
         }
     }
 
-    public function updatedRegularPrice()
-    {
-        // dd("OK");
-        $this->discountCalculate();
-    }
+    // public function updatedRegularPrice()
+    // {
+    //     // dd("OK");
+    //     $this->discountCalculate();
+    // }
 
-    public function updatedSpecialPrice()
-    {
-        // dd("OK");
-        $this->discountCalculate();
-    }
+    // public function updatedSpecialPrice()
+    // {
+    //     // dd("OK");
+    //     $this->discountCalculate();
+    // }
 
-    public function discountCalculate()
-    {
-        if ((is_numeric($this->regular_price) && !empty($this->regular_price) && isset($this->regular_price)) || is_numeric($this->special_price) && !empty($this->special_price) || is_numeric($this->special_price)) {
-            $discount = floatval($this->regular_price) - floatval($this->special_price);
-            $this->discount = $discount * 100 / floatval($this->regular_price);
-        }
-    }
+    // public function discountCalculate()
+    // {
+    //     if ((is_numeric($this->regular_price) && !empty($this->regular_price) && isset($this->regular_price)) || is_numeric($this->special_price) && !empty($this->special_price) || is_numeric($this->special_price)) {
+    //         $discount = floatval($this->regular_price) - floatval($this->special_price);
+    //         $this->discount = $discount * 100 / floatval($this->regular_price);
+    //     }
+    // }
 
     public function render()
     {
@@ -359,21 +359,24 @@ class Product extends Component
 
         if ($this->sub_category_id) {
             $subSubCat = SubSubCategory::whereSubCategoryId($this->sub_category_id)->get();
-        } else {
-            $subSubCat = SubSubCategory::get();
         }
+
+
+        // else {
+        //     $subSubCat = SubSubCategory::get();
+        // }
 
         return view('livewire.backend.product-info.product', [
             'Categories' => Category::get(),
             'SubCategories' => $subCat,
             'SubSubCategories' => $subSubCat,
-            'brands' => Brand::get(),
-            'colors' => Color::get(),
-            'feature_products' => ProductFeature::get(),
-            'sizes' => Size::get(),
-            'vats' => Vat::get(),
-            'contacts' => Contact::get(),
-            'warehouses' => Warehouse::get(),
+            // 'brands' => Brand::get(),
+            // 'colors' => Color::get(),
+            // 'feature_products' => ProductFeature::get(),
+            // 'sizes' => Size::get(),
+            // 'vats' => Vat::get(),
+            // 'contacts' => Contact::get(),
+            // 'warehouses' => Warehouse::get(),
         ]);
     }
 }

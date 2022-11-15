@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Backend\ContactInfo\Contact;
 use App\Models\Backend\ContactInfo\ContactCategory;
 use App\Models\Backend\Inventory\Invoice;
@@ -29,6 +27,8 @@ use App\Models\Backend\Setting\Warehouse;
 use App\Models\Backend\Setting\HowWeWillHelp;
 use App\Models\Backend\Setting\WhoTrust;
 use App\Models\Backend\Setting\Affiliation;
+use App\Models\Backend\ProductInfo\Package;
+use App\Models\Backend\ProductInfo\Portfolio;
 use App\Models\FrontEnd\Vendor;
 use App\Models\Inventory\Category;
 use App\Models\Inventory\Currency;
@@ -171,6 +171,44 @@ class DatatableController extends Controller
             ->addColumn('id', function ($data) {
                 return $this->i++;
             })
+            ->toJSON();
+    }
+
+    public function PackageTable()
+    {
+        $Query = Package::query()->orderBy('id', 'desc')->get();
+        $this->i = 1;
+        return Datatables::of($Query)
+            ->addColumn('id', function ($data) {
+                return $this->i++;
+            })
+            ->addColumn('action', function ($data) {
+                return '<button class="btn btn-primary btn-sm" onclick="callEdit('.$data->id.')">Edit</button>
+                    <button class="btn btn-danger btn-sm" onclick="callDelete('.$data->id.')">Delete</button>';
+            })
+            ->rawColumns(['action'])
+            ->toJSON();
+    }
+
+
+    public function PortfolioTable()
+    {
+        $Query = Portfolio::query()->orderBy('id', 'desc')->get();
+        $this->i = 1;
+        return Datatables::of($Query)
+            ->addColumn('id', function ($data) {
+                return $this->i++;
+            })
+
+            ->addColumn('is_active', function ($data) {
+                return $data->is_active == 1 ? 'Active' : 'Inactive';
+            })
+
+            ->addColumn('action', function ($data) {
+                return '<button class="btn btn-primary btn-sm" onclick="callEdit('.$data->id.')">Edit</button>
+                    <button class="btn btn-danger btn-sm" onclick="callDelete('.$data->id.')">Delete</button>';
+            })
+            ->rawColumns(['product_id','image','action'])
             ->toJSON();
     }
 

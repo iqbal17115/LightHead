@@ -3,7 +3,7 @@
 @endpush
 <div>
     <x-slot name="title">
-        CATEGORY
+        Portfolio
     </x-slot>
     <div class="row">
         <div class="col-12">
@@ -13,7 +13,7 @@
                         <div class="col-sm-4">
                             <div class="search-box mr-2 mb-2 d-inline-block">
                                 <div class="position-relative">
-                                    <h4>Category List</h4>
+                                    <h4>Portfolio List</h4>
                                 </div>
                             </div>
                         </div>
@@ -21,14 +21,15 @@
                             <div class="text-sm-right">
                                 <button type="button"
                                     class="btn btn-success btn-rounded waves-effect waves-light mb-2 mr-2"
-                                    wire:click="categoryModal"><i class="mdi mdi-plus mr-1"></i> New Category</button>
+                                    wire:click="portfolioModal"><i class="mdi mdi-plus mr-1"></i>New Portfolio</button>
                             </div>
                         </div><!-- end col-->
                     </div>
                     <div wire:ignore class="table-responsive">
                         <div wire:ignore class="table-responsive">
-                            <table class="table table-bordered dt-responsive nowrap" id="CategoryTable"
-                                style="border-collapse: collapse; border-spacing: 0; width: 100%;"></table>
+                            <table class="table table-bordered dt-responsive nowrap" id="PortfolioTable"
+                                style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -36,74 +37,66 @@
         </div>
     </div>
     <!--  Modal content for the above example -->
-    <div wire:ignore.self class="modal fade" id="categoryModal" tabindex="-1" role="dialog"
+    <div wire:ignore.self class="modal fade" id="portfolioModal" tabindex="-1" role="dialog"
         aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Category</h5>
+                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Portfolio</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form wire:submit.prevent="categorySave">
+                <form wire:submit.prevent="portfolioSave">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="basicpill-firstname-input">Category Code</label>
-                                    <input class="form-control" type="text" wire:model.lazy="code"
-                                        placeholder="Cost code">
-                                    @error('code') <span class="error">{{ $message }}</span> @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label for="basicpill-lastname-input">Name</label>
+                                    <label for="basicpill-firstname-input">Name</label>
                                     <input class="form-control" type="text" wire:model.lazy="name"
-                                        placeholder="Enter Name">
+                                        placeholder="Name">
                                     @error('name') <span class="error">{{ $message }}</span> @enderror
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
+                                    <label for="basicpill-lastname-input">link</label>
+                                    <input class="form-control" type="text" wire:model.lazy="link"
+                                        placeholder="Enter Name">
+                                    @error('link') <span class="error">{{ $message }}</span> @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
                                     <label class="control-label">Image (221*179 jpg)</label>
                                     <div class="custom-file">
-                                        {{-- <input type="file" wire:model.lazy="image" class="custom-file-input"
-                                            id="customFile"> --}}
-
-                                        <input type="file" wire:model.lazy="image1" x-ref="image1">
-                                        @if (!$image1)
-                                        @if($QueryUpdate)
-                                        <img src="{{ asset('storage/photo/'.$QueryUpdate->image1)}}"
-                                            style="height:100px; weight:100px;" alt="Image1"
-                                            class="img-circle img-fluid">
+                                        <input type="file" wire:model.lazy="image" x-ref="image">
+                                        @if (!$image)
+                                            @if($QueryUpdate)
+                                                <img src="{{ asset('storage/photo/'.$QueryUpdate->image)}}"
+                                                    style="height:100px; weight:100px;" alt="image"
+                                                    class="img-circle img-fluid">
+                                            @endif
                                         @endif
-                                        @endif
-                                        @if ($image1)
-                                        <img src="{{ $image1->temporaryUrl() }}" style="height:100px; weight:100px;"
-                                            alt="Image" class="img-circle img-fluid">
+                                        @if ($image)
+                                            <img src="{{ $image->temporaryUrl() }}" style="height:100px; weight:100px;"
+                                                alt="Image" class="img-circle img-fluid">
                                         @endif
                                     </div>
                                 </div>
                             </div>
 
-                            {{-- Input description --}}
-                            {{-- <div class="col-lg-12">
-                                <div class="form-group">
-                                    <textarea class="form-control" wire:model.lazy="description"
-                                        placeholder="Description"></textarea>
-                                </div>
-                            </div> --}}
-
-
-                            {{-- summernote description --}}
                             <div class="col-lg-12">
-                                <div wire:ignore class="form-group">
-                                    <label for="basicpill-lastname-input"> Description</label>
-                                    <textarea class="form-control" id="description" rows="3"
-                                        wire:model.lazy="description"
-                                        placeholder="Description">{{$description}}</textarea>
+                                <div class="form-group">
+                                    <label class="control-label">Product</label>
+                                    <select class="form-control select2" wire:model.lazy="product_id"
+                                        id="select2-dropdown">
+                                        <option>Select</option>
+                                            @foreach ($products as $product)
+                                            <option value="{{ $product->id }}">{{ $product->name }}</option>
+                                            @endforeach
+                                    </select>
                                 </div>
                             </div>
 
@@ -116,14 +109,6 @@
                                         <option value="0">Inactive</option>
                                     </select>
                                     @error('is_active') <span class="error">{{ $message }}</span> @enderror
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <input type="checkbox" name="terms" wire:model.lazy="top_show" @if($top_show)
-                                        checked @endif>
-                                    <label>Top Show Image</label><br /><br />
                                 </div>
                             </div>
                         </div>
@@ -166,25 +151,20 @@
 @push('scripts')
 <script>
     function callEdit(id) {
-        @this.call('categoryEdit', id);
+        @this.call('portfolioEdit', id);
     }
     function callDelete(id) {
         @this.call('DeleteModal', id);
     }
         $(document).ready(function () {
-            var datatable = $('#CategoryTable').DataTable({
+            var datatable = $('#PortfolioTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{route('data.category_table')}}",
+                ajax: "{{route('data.portfolio_table')}}",
                 columns: [
                     {
                         title: 'SL',
                         data: 'id'
-                    },
-                    {
-                        title: 'Category Code',
-                        data:   'code',
-                        name:   'code'
                     },
                     {
                         title: 'Name',
@@ -193,9 +173,22 @@
                     },
                     {
                         title: 'Image',
-                        data:  'image1',
-                        name:  'image1'
+                        data:  'image',
+                        name:  'image'
                     },
+
+                    {
+                        title: 'Link',
+                        data:  'link',
+                        name:  'link'
+                    },
+
+                    {
+                        title: 'Product',
+                        data:  'product_id',
+                        name:  'product_id'
+                    },
+
                     {
                         title: 'Status',
                         data:  'is_active',

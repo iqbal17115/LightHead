@@ -27,7 +27,7 @@
                     </div>
                     <div wire:ignore class="table-responsive">
                         <div wire:ignore class="table-responsive">
-                            <table class="table table-bordered dt-responsive nowrap" id="PackageTable"
+                            <table class="table table-bordered dt-responsive nowrap" id="packageTable"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;"></table>
                         </div>
                     </div>
@@ -84,21 +84,24 @@
                                     <label for="basicpill-lastname-input"> Description</label>
                                     <textarea class="form-control" id="description" rows="3"
                                         wire:model.lazy="description"
-                                        placeholder="Description">{{$description}}</textarea>
+                                        placeholder="Description">{{$description}}
+                                    </textarea>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="control-label">Product</label>
-                                products
-                                <select class="form-control select2" wire:model.lazy="product_id"
-                                    id="select2-dropdown">
-                                    <option>Select</option>
-                                    @foreach ($products as $product)
-                                    <option value="{{ $product->id }}">{{ $product->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+
+                           <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="control-label">Product</label>
+                                    <select class="form-control select2" wire:model.lazy="product_id"
+                                        id="select2-dropdown">
+                                        <option>Select</option>
+                                        @foreach ($products as $product)
+                                        <option value="{{ $product->id }}">{{ $product->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                           </div>
 
                             <div class="col-lg-12">
                                 <div class="form-group">

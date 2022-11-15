@@ -318,6 +318,7 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('all_user_table', [DatatableController::class, 'AllUserList'])->name('all_user_table');
             Route::get('offer_table', [DatatableController::class, 'OfferList'])->name('offer_table');
             Route::get('package_table', [DatatableController::class, 'PackageTable'])->name('package_table');
+            Route::get('portfolio_table', [DatatableController::class, 'PortfolioTable'])->name('portfolio_table');
 
         });
     });
