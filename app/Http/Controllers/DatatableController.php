@@ -906,40 +906,54 @@ class DatatableController extends Controller
     public function ProductTable()
     {
         $Query = Product::with('Category:id,name')->orderBy('id', 'desc');
-
         $this->i = 1;
 
         return Datatables::of($Query)
             ->addColumn('id', function ($data) {
                 return $this->i++;
             })
-            // ->addColumn('category_id', function ($data) {
-            //     return $data->Category ? $data->Category->name : '';
-            // })
-            ->addColumn('product_id', function ($data) {
+            ->addColumn('category_id', function ($data) {
+                return $data->Category ? $data->Category->name : '';
+            })
+
+            ->addColumn('sub_category_id', function ($data) {
+                return $data->SubCategory ? $data->SubCategory->name : '';
+            })
+
+            ->addColumn('image1', function ($data) {
                 // return $data->ProductImageFirst ? $data->ProductImageFirst->image : '';
-                if ($data->ProductImageFirst) {
-                    $url = asset('storage/photo/'.$data->ProductImageFirst->image);
+                if ($data->image1) {
+                    $url = asset('storage/photo/'.$data->image1);
                 } else {
                     $url = '';
                 }
-
                 return '<img src="'.$url.'" style="height:92px; weight:138px;" alt="Image" class="img-fluid mx-auto d-block"/>';
             })
+
+            ->addColumn('image2', function ($data) {
+                // return $data->ProductImageFirst ? $data->ProductImageFirst->image : '';
+                if ($data->image2) {
+                    $url = asset('storage/photo/'.$data->image2);
+                } else {
+                    $url = '';
+                }
+                return '<img src="'.$url.'" style="height:92px; weight:138px;" alt="Image" class="img-fluid mx-auto d-block"/>';
+            })
+
+
             ->addColumn('is_active', function ($data) {
                 return $data->is_active == 1 ? 'Active' : 'Inactive';
             })
             ->addColumn('action', function ($data) {
                 $html = '';
-                $html .= '<button class="btn btn-info btn-sm" onclick="callDetail('.$data->id.')"><i class="fas fa-eye font-size-12"></i></button>
-                    <a class="btn btn-primary btn-sm" href="'.route('product.product', ['id' => $data->id]).'" data-id="'.$data->id.'"><i class="bx bx-edit font-size-12"></i></a>';
+                $html .=
+                '<a class="btn btn-primary btn-sm" href="'.route('product.product', ['id' => $data->id]).'" data-id="'.$data->id.'"><i class="bx bx-edit font-size-12"></i></a>';
                 if (!$data->OrderDetail && !$data->AddToCard) {
                     $html .= '<button class="btn btn-danger btn-sm" onclick="callDelete('.$data->id.')"><i class="bx bx-window-close font-size-12"></i></button>';
                 }
-
                 return $html;
             })
-            ->rawColumns(['category_id', 'image', 'product_id', 'is_active', 'action'])
+            ->rawColumns(['category_id', 'image1', 'image2', 'product_id', 'is_active', 'action'])
             ->toJSON();
     }
 

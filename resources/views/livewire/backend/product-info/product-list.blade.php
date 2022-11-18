@@ -275,16 +275,38 @@
                         title: 'SL',
                         data: 'id'
                     },
-                    // {
-                    //     title: 'Code',
-                    //     data:   'code',
-                    //     name:   'code'
-                    // },
+                    {
+                        title: 'Code',
+                        data:   'code',
+                        name:   'code'
+                    },
+
+
                     {
                         title: 'Name',
                         data:  'name',
                         name:  'name'
                     },
+
+                    {
+                        title: 'Heading',
+                        data:  'heading',
+                        name:  'heading'
+                    },
+
+                    {
+                        title: 'Tag',
+                        data:  'tag',
+                        name:  'tag'
+                    },
+
+                    {
+                        title: 'Title',
+                        data:  'title',
+                        name:  'title'
+                    },
+
+
                     {
                         title: 'Category',
                         data:  'category.name',
@@ -292,21 +314,36 @@
                         searchable:true,
                         "orderable": false
                     },
+
+                    {
+                        title: 'Sub Category',
+                        data:  'sub_category_id',
+                        name:  'sub_category_id',
+                        searchable:true,
+                        "orderable": false
+                    },
+
+
                     {
                         title: 'Image',
-                        data:  'product_id',
-                        name:  'product_id'
+                        data:  'image1',
+                        name:  'image1'
                     },
+
                     {
-                        title: 'Regular Price',
-                        data:  'regular_price',
-                        name:  'regular_price'
+                        title: 'Image2',
+                        data:  'image2',
+                        name:  'image2'
                     },
+
+
                     {
-                        title: 'Special Price',
-                        data:  'special_price',
-                        name:  'special_price'
+                        title: 'Description',
+                        data:  'description',
+                        name:  'description'
                     },
+
+
                     {
                         title: 'Status',
                         data:  'is_active',
