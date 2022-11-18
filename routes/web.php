@@ -57,6 +57,7 @@ use App\Http\Livewire\Backend\Setting\WhyWeAreDifferent;
 use App\Http\Livewire\Backend\Setting\HowWeWillHelp;
 use App\Http\Livewire\Backend\Setting\WhoTrust;
 use App\Http\Livewire\Backend\Setting\Affiliation;
+use App\Http\Livewire\Backend\Setting\Carrer;
 use App\Http\Livewire\Backend\ProductInfo\Package;
 use App\Http\Livewire\Backend\ProductInfo\Portfolio;
 use App\Http\Livewire\Backend\Setting\Vat;
@@ -240,6 +241,7 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('how_we_will_help', HowWeWillHelp::class)->name('how_we_will_help');
             Route::get('who_trust', WhoTrust::class)->name('who_trust');
             Route::get('affiliation', Affiliation::class)->name('affiliation');
+            Route::get('carrer', Carrer::class)->name('carrer');
             Route::get('point-policy', PointPolicy::class)->name('point-policy');
             Route::get('breaking-news', BreakingNews::class)->name('breaking-news');
             Route::get('language', Language::class)->name('language');
@@ -319,6 +321,7 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('offer_table', [DatatableController::class, 'OfferList'])->name('offer_table');
             Route::get('package_table', [DatatableController::class, 'PackageTable'])->name('package_table');
             Route::get('portfolio_table', [DatatableController::class, 'PortfolioTable'])->name('portfolio_table');
+            Route::get('carrer_table', [DatatableController::class, 'CarrerTable'])->name('carrer_table');
 
         });
     });
