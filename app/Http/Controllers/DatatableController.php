@@ -27,6 +27,7 @@ use App\Models\Backend\Setting\Warehouse;
 use App\Models\Backend\Setting\HowWeWillHelp;
 use App\Models\Backend\Setting\WhoTrust;
 use App\Models\Backend\Setting\Affiliation;
+use App\Models\Backend\Setting\Carrer;
 use App\Models\Backend\ProductInfo\Package;
 use App\Models\Backend\ProductInfo\Portfolio;
 use App\Models\FrontEnd\Vendor;
@@ -1075,4 +1076,31 @@ class DatatableController extends Controller
             })
             ->toJSON();
     }
+
+    public function CarrerTable()
+    {
+        $Query = Carrer::query()->orderBy('id', 'desc');
+        $this->i = 1;
+
+        return Datatables::of($Query)
+            ->addColumn('id', function ($data) {
+                return $this->i++;
+            })
+            ->addColumn('is_active', function ($data) {
+                return $data->is_active == 1 ? 'Active' : 'Inactive';
+            })
+            ->addColumn('cerculer_image', function ($data) {
+                $url = asset('storage/photo/'.$data->cerculer_image);
+                return '<img src="'.$url.'" style="height:92px; weight:138px;" alt="Image1" class="img-fluid mx-auto d-block"/>';
+            })
+            ->addColumn('action', function ($data) {
+                $html = '';
+                    $html .= '<button class="btn btn-primary btn-sm" onclick="callEdit('.$data->id.')"><i class="bx bx-edit font-size-18"></i></button>';
+                    $html .= '<button class="btn btn-danger btn-sm" onclick="callDelete('.$data->id.')"><i class="bx bx-window-close font-size-18"></i></button>';
+                return $html;
+            })
+            ->rawColumns(['cerculer_image', 'is_active', 'action'])
+            ->toJSON();
+    }
+
 }

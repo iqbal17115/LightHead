@@ -52,6 +52,8 @@
                         <li><a href="{{route('setting.who_trust')}}">Who Trust</a></li>
                         <li><a href="{{route('setting.affiliation')}}">Affiliation</a></li>
                         <li><a href="{{route('setting.companyinfo')}}">Company Info</a></li>
+                        <li><a href="{{route('setting.carrer')}}">Carrer</a></li>
+                        <li><a href="{{route('setting.about-us-info')}}">About Us Info</a></li>
                         <li><a href="{{route('setting.currency')}}">Currency</a></li>
                     </ul>
                 </li>

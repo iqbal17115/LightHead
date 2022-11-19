@@ -20,7 +20,7 @@
                             <div class="text-sm-right">
                                 <button type="button"
                                     class="btn btn-success btn-rounded waves-effect waves-light mb-2 mr-2"
-                                    wire:click="affiliationModal"><i class="mdi mdi-plus mr-1"></i>NEW jOB</button>
+                                    wire:click="carrerModal"><i class="mdi mdi-plus mr-1"></i>NEW jOB</button>
                             </div>
                         </div><!-- end col-->
                     </div>
@@ -35,7 +35,7 @@
         </div>
     </div>
     <!--  Modal content for the above example -->
-    <div wire:ignore.self class="modal fade" id="sliderImage" tabindex="-1" role="dialog"
+    <div wire:ignore.self class="modal fade" id="carrerModal" tabindex="-1" role="dialog"
         aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -48,8 +48,6 @@
                 <form wire:submit.prevent="carrerSave">
                     <div class="modal-body">
                         <div class="row">
-
-
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="basicpill-firstname-input">Title</label>
@@ -71,16 +69,16 @@
                                 <div class="form-group">
                                     <label class="control-label">Cerculer Image</label>
                                     <div class="custom-file">
-                                        <input type="file" wire:model.lazy="image">
-                                        @error('image') <span class="error">{{ $message }}</span> @enderror
-                                        @if (!$image)
+                                        <input type="file" wire:model.lazy="cerculer_image">
+                                        @error('cerculer_image') <span class="error">{{ $message }}</span> @enderror
+                                        @if (!$cerculer_image)
                                         @if($QueryUpdate)
-                                        <img src="{{ asset('storage/photo')}}/{{ $QueryUpdate->image }}"
+                                        <img src="{{ asset('storage/photo')}}/{{ $QueryUpdate->cerculer_image }}"
                                             style="height:30px; weight:30px;" alt="Image" class="img-circle img-fluid">
                                         @endif
                                         @endif
-                                        @if ($image)
-                                        <img src="{{ $image->temporaryUrl() }}" style="height:30px; weight:30px;"
+                                        @if ($cerculer_image)
+                                        <img src="{{ $cerculer_image->temporaryUrl() }}" style="height:30px; weight:30px;"
                                             alt="Image" class="img-circle img-fluid">
                                         @endif
                                         {{-- <label class="custom-file-label" for="customFile">Choose file</label> --}}
@@ -88,7 +86,7 @@
                                 </div>
                             </div>
 
-                            
+
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="basicpill-lastname-input">Status</label>
@@ -140,25 +138,38 @@
 @push('scripts')
 <script>
     function callEdit(id) {
-        @this.call('whoEdit', id);
+        @this.call('carrerEdit', id);
     }
     function callDelete(id) {
         @this.call('DeleteModal', id);
     }
         $(document).ready(function () {
-            var datatable = $('#sliderTable').DataTable({
+            var datatable = $('#carrerTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{route('data.affiliation_table')}}",
+                ajax: "{{route('data.carrer_table')}}",
                 columns: [
                     {
                         title: 'SL',
                         data: 'id'
                     },
+
                     {
-                        title: 'Image',
-                        data:  'image',
-                        name:  'image'
+                        title: 'Title',
+                        data:  'title',
+                        name:  'title'
+                    },
+                    {
+                        title: 'Job Title',
+                        data:  'job_title',
+                        name:  'job_title'
+                    },
+
+
+                    {
+                        title: 'Cerculer Image',
+                        data:  'cerculer_image',
+                        name:  'cerculer_image'
                     },
                     {
                         title: 'Status',

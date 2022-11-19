@@ -64,6 +64,8 @@ use App\Http\Livewire\Backend\Setting\Vat;
 use App\Http\Livewire\Backend\Setting\Warehouse;
 use App\Http\Livewire\Backend\Setting\Language;
 use App\Http\Livewire\Backend\Setting\ManageLanguage;
+// use App\Http\Livewire\Backend\Setting\Career;
+use App\Http\Livewire\Backend\Setting\AboutUs;
 use App\Http\Livewire\Backend\ContactUs\Message;
 use App\Http\Livewire\Backend\Transaction\CustomerPayment;
 use App\Http\Livewire\Backend\Transaction\CustomerPaymentReport;
@@ -244,6 +246,8 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('carrer', Carrer::class)->name('carrer');
             Route::get('point-policy', PointPolicy::class)->name('point-policy');
             Route::get('breaking-news', BreakingNews::class)->name('breaking-news');
+            Route::get('carrer', Carrer::class)->name('carrer');
+            Route::get('about-us-info', AboutUs::class)->name('about-us-info');
             Route::get('language', Language::class)->name('language');
             Route::get('manage-language/{id?}', ManageLanguage::class)->name('manage-language');
         });
@@ -322,7 +326,6 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('package_table', [DatatableController::class, 'PackageTable'])->name('package_table');
             Route::get('portfolio_table', [DatatableController::class, 'PortfolioTable'])->name('portfolio_table');
             Route::get('carrer_table', [DatatableController::class, 'CarrerTable'])->name('carrer_table');
-
         });
     });
 });
