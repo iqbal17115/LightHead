@@ -60,6 +60,7 @@ use App\Http\Livewire\Backend\Setting\Affiliation;
 use App\Http\Livewire\Backend\Setting\Carrer;
 use App\Http\Livewire\Backend\ProductInfo\Package;
 use App\Http\Livewire\Backend\ProductInfo\Portfolio;
+use App\Http\Livewire\Backend\Setting\PayNow;
 use App\Http\Livewire\Backend\Setting\Vat;
 use App\Http\Livewire\Backend\Setting\Warehouse;
 use App\Http\Livewire\Backend\Setting\Language;
@@ -248,6 +249,7 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('breaking-news', BreakingNews::class)->name('breaking-news');
             Route::get('carrer', Carrer::class)->name('carrer');
             Route::get('about-us-info', AboutUs::class)->name('about-us-info');
+            Route::get('pay-now', PayNow::class)->name('pay-now');
             Route::get('language', Language::class)->name('language');
             Route::get('manage-language/{id?}', ManageLanguage::class)->name('manage-language');
         });
@@ -326,6 +328,7 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('package_table', [DatatableController::class, 'PackageTable'])->name('package_table');
             Route::get('portfolio_table', [DatatableController::class, 'PortfolioTable'])->name('portfolio_table');
             Route::get('carrer_table', [DatatableController::class, 'CarrerTable'])->name('carrer_table');
+            Route::get('pay_now_table', [DatatableController::class, 'PayNowTable'])->name('pay_now_table');
         });
     });
 });

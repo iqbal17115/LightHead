@@ -30,6 +30,7 @@ use App\Models\Backend\Setting\Affiliation;
 use App\Models\Backend\Setting\Carrer;
 use App\Models\Backend\ProductInfo\Package;
 use App\Models\Backend\ProductInfo\Portfolio;
+use App\Models\Backend\Setting\PayNow;
 use App\Models\FrontEnd\Vendor;
 use App\Models\Inventory\Category;
 use App\Models\Inventory\Currency;
@@ -1100,6 +1101,33 @@ class DatatableController extends Controller
                 return $html;
             })
             ->rawColumns(['cerculer_image', 'is_active', 'action'])
+            ->toJSON();
+    }
+
+
+    public function PayNowTable()
+    {
+        $Query = PayNow::query()->orderBy('id', 'desc');
+        $this->i = 1;
+
+        return Datatables::of($Query)
+            ->addColumn('id', function ($data) {
+                return $this->i++;
+            })
+            ->addColumn('is_active', function ($data) {
+                return $data->is_active == 1 ? 'Active' : 'Inactive';
+            })
+            ->addColumn('image', function ($data) {
+                $url = asset('storage/photo/'.$data->image);
+                return '<img src="'.$url.'" style="height:92px; weight:138px;" alt="Image1" class="img-fluid mx-auto d-block"/>';
+            })
+            ->addColumn('action', function ($data) {
+                $html = '';
+                    $html .= '<button class="btn btn-primary btn-sm" onclick="callEdit('.$data->id.')"><i class="bx bx-edit font-size-18"></i></button>';
+                    $html .= '<button class="btn btn-danger btn-sm" onclick="callDelete('.$data->id.')"><i class="bx bx-window-close font-size-18"></i></button>';
+                return $html;
+            })
+            ->rawColumns(['image', 'is_active', 'action'])
             ->toJSON();
     }
 
