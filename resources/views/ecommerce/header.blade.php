@@ -14,7 +14,6 @@
                     <ul class="top-link list-inline hidden-lg ">
                     </ul> --}}
                     <ul class="top-link list-inline lang-curr">
-
                         <li class="currency">
                             <div class="btn-group currencies-block">
                                 <form action="" method="post" enctype="multipart/form-data" id="currency">
@@ -274,12 +273,10 @@
     <div class="header-bottom hidden-compact">
         <div class="container">
             <div class="row">
-
                 <div class="bottom1 menu-vertical col-lg-2 col-md-3 col-sm-3">
                     <div class="responsive so-megamenu megamenu-style-dev ">
-                        <div class="so-vertical-menu ">
+                        {{-- <div class="so-vertical-menu ">
                             <nav class="navbar-default">
-
                                 <div class="container-megamenu vertical">
                                     <div id="menuHeading">
                                         <div class="megamenuToogle-wrapper">
@@ -295,11 +292,9 @@
                                             </div>
                                         </div>
                                     </div>
-
                             </nav>
-                        </div>
+                        </div> --}}
                     </div>
-
                 </div>
 
                 <!-- Main menu -->
