@@ -61,6 +61,7 @@ use App\Http\Livewire\Backend\Setting\Carrer;
 use App\Http\Livewire\Backend\ProductInfo\Package;
 use App\Http\Livewire\Backend\ProductInfo\Portfolio;
 use App\Http\Livewire\Backend\Setting\PayNow;
+use App\Http\Livewire\Backend\Blog\Blog;
 use App\Http\Livewire\Backend\Setting\Vat;
 use App\Http\Livewire\Backend\Setting\Warehouse;
 use App\Http\Livewire\Backend\Setting\Language;
@@ -254,6 +255,10 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('manage-language/{id?}', ManageLanguage::class)->name('manage-language');
         });
 
+        Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
+            Route::get('blog', Blog::class)->name('blog');
+        });
+
         Route::group(['prefix' => 'order',  'as' => 'order.'], function () {
             Route::get('order-list', OrderList::class)->name('order-list');
             Route::get('order-processing', ProcessingOrderList::class)->name('order-processing');
@@ -329,6 +334,7 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('portfolio_table', [DatatableController::class, 'PortfolioTable'])->name('portfolio_table');
             Route::get('carrer_table', [DatatableController::class, 'CarrerTable'])->name('carrer_table');
             Route::get('pay_now_table', [DatatableController::class, 'PayNowTable'])->name('pay_now_table');
+            Route::get('blog_table', [DatatableController::class, 'BlogTable'])->name('blog_table');
         });
     });
 });
