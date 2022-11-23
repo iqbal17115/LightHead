@@ -22,7 +22,7 @@
 <main class="main about">
     <div class="page-header page-header-bg text-left">
         <div class="col-md-12 center" style="background-color: aquamarine">
-            <div class="col-md-6">
+            <div class="col-md-6 ml-6">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRWu7i6R9krXAMoqflVyrm4Us6kak273xZCTQfHgPSMW5ryTTsf_PBBPxrzy75E31plg&usqp=CAU"
                     alt="..." class="img-thumbnail">
             </div>
@@ -87,13 +87,20 @@
 
         <div class="col-md-12 center" style="background-color: rgb(179, 187, 192)">
             <div class="col-md-6">
-                 
+                <p>Test test</p>
+                <p>Test test</p>
+                <p>Test test</p>
             </div>
             <div class="col-md-6">
-
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRWu7i6R9krXAMoqflVyrm4Us6kak273xZCTQfHgPSMW5ryTTsf_PBBPxrzy75E31plg&usqp=CAU"
+                alt="..." class="img-thumbnail">
             </div>
         </div>
 
+
+        <div class="col-md-12 center" style="background-color: rgb(223, 16, 95)">
+             <p>Making Marketing Smarter</p>
+        </div>
     </div>
 </main>
 @endsection
