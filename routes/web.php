@@ -163,13 +163,14 @@ Route::get('contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('about', [HomeController::class, 'About'])->name('about');
 Route::get('privacy-policy', [HomeController::class, 'PrivacyPolicy'])->name('privacy-policy');
 Route::get('terms-condition', [HomeController::class, 'TermsAndCondition'])->name('terms-condition');
+Route::get('return-policy', [HomeController::class, 'ReturnPolicy'])->name('return-policy');
 Route::get('category', FrontEndCategory::class)->name('category');
 Route::get('sign-in', SignIn::class)->name('sign-in');
 Route::get('sign-up', SignUp::class)->name('sign-up');
 Route::get('log-in', LogIn::class)->name('log-in');
 Route::get('contact-us', ContactUs::class)->name('contact-us');
 Route::get('my-profile', MyProfile::class)->name('my-profile');
-Route::get('return-policy', ReturnPolicy::class)->name('return-policy');
+// Route::get('return-policy', ReturnPolicy::class)->name('return-policy');
 Route::get('message', Message::class)->name('message');
 
 

@@ -1,8 +1,8 @@
   <!-- Footer Container -->
   <footer class="footer-container typefooter-1">
         <!-- Footer Top Container -->
- 
-            <div class="container">
+
+            {{-- <div class="container">
                 <div class="row footer-top">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="socials-w">
@@ -17,11 +17,6 @@
                             <li class="skype"><a href="#" target="_blank"><i class="fa fa-skype"></i><span>skype</span></a></li>
                           </ul>
                         </div>
-                        
-
-
-
-
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="module newsletter-footer1">
@@ -31,7 +26,7 @@
                                     <div class="page-heading font-title">
                                         Signup for Newsletter
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="block_content">
@@ -57,10 +52,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
-      
+            </div> --}}
+
         <!-- /Footer Top Container -->
-        
+
         <div class="footer-middle ">
             <div class="container">
                 <div class="row">
@@ -101,12 +96,12 @@
                         </div>
                     </div>
                     @endforeach
-                  
+
                         </div>
                     </div>
 
 
-                    
+
                 </div>
             </div>
         </div>
@@ -117,12 +112,13 @@
                                 <a href="#"><img src="image/catalog/demo/payment/pay1.jpg" alt="image"></a>
                                 <ul class="footer-links">
                                     <li><a href="#">About Us</a></li>
+                                    privacy-policy
                                     <li><a href="#">Customer Service</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Site Map</a></li>
-                                    <li><a href="#">Orders and Returns</a></li>
+                                    <li><a href="{{route('privacy-policy')}}">Privacy Policy</a></li>
+                                    <li><a href="{{route('terms-condition')}}">Terms & Condition</a></li>
+                                    <li><a href="{{route('return-policy')}}">Returns Refund & Cancellation policy</a></li>
                                     <li><a href="#">Contact Us</a></li>
-                                </ul>  
+                                </ul>
                                 <p>**$50 off orders $350+ with the code BOO50. $75 off orders $500+ with the code BOO75. $150 off orders $1000+ with the code BOO150. Valid from October 28, 2016 to October 31, 2016. Offer may not be combined with any other offers or promotions, is non-exchangeable and non-refundable. Offer valid within the US only.</p>
                             </div>
                         </div>
@@ -141,11 +137,11 @@
                     SuperMarket © 2018 Demo Store. All Rights Reserved. Designed by <a href="http://www.opencartworks.com/" target="_blank">OpenCartWorks.Com</a>
                     </div>
                 </div>
-            </div>            
+            </div>
         </div>
         <!-- /Footer Bottom Container -->
-        
-        
+
+
             <!--Back To Top-->
         <div class="back-to-top"><i class="fa fa-angle-up"></i></div>
     </footer>

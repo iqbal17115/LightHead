@@ -1,6 +1,6 @@
    <!-- Header Container  -->
    <header id="header" class="typeheader-1">
-        
+
         <!-- Header Top -->
         <div class="header-top hidden-compact">
             <div class="container">
@@ -8,7 +8,7 @@
                     <div class="header-top-left col-lg-7 col-md-8 col-sm-6 col-xs-4">
                         <div class="hidden-md hidden-sm hidden-xs welcome-msg">Welcome to SuperMarket! Wrap new offers / gift every single day on Weekends - New Coupon code: <span>Happy2018</span> </div>
                         <ul class="top-link list-inline hidden-lg ">
-                        </ul>            
+                        </ul>
                     </div>
                     <div class="header-top-right collapsed-block col-lg-5 col-md-4 col-sm-6 col-xs-8">
                         <ul class="top-link list-inline lang-curr">
@@ -25,7 +25,7 @@
                                         </ul>
                                     </form>
                                 </div>
-                            </li>   
+                            </li>
                             <li class="language">
                                 <div class="btn-group languages-block ">
                                     <form action="https://demo.smartaddons.com/templates/html/supermarket/index.html" method="post" enctype="multipart/form-data" id="bt-language">
@@ -40,12 +40,12 @@
                                         </ul>
                                     </form>
                                 </div>
-                                
+
                             </li>
                         </ul>
-                        
 
-                        
+
+
                     </div>
                 </div>
             </div>
@@ -62,12 +62,12 @@
                     </div>
                     <!-- //end Logo -->
 
-                    
+
                     <!-- Search -->
                     <div class="col-lg-7 col-md-6 col-sm-5">
                         <div class="search-header-w">
-                            <div class="icon-search hidden-lg hidden-md hidden-sm"><i class="fa fa-search"></i></div>                                
-                              
+                            <div class="icon-search hidden-lg hidden-md hidden-sm"><i class="fa fa-search"></i></div>
+
                             <div id="sosearchpro" class="sosearchpro-wrapper so-search ">
                                 <form method="GET" action="https://demo.smartaddons.com/templates/html/supermarket/index.html">
                                     <div id="search0" class="search input-group form-group">
@@ -88,17 +88,17 @@
                                         </div>
 
                                         <input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="Keyword here..." name="search">
-                                
+
                                         <button type="submit" class="button-search btn btn-primary" name="submit_search"><i class="fa fa-search"></i></button>
-                                    
+
                                     </div>
                                     <input type="hidden" name="route" value="product/search" />
                                 </form>
                             </div>
-                        </div>  
+                        </div>
                     </div>
                     <!-- //end Search -->
-                    <div class="middle-right col-lg-3 col-md-3 col-sm-3">                  
+                    <div class="middle-right col-lg-3 col-md-3 col-sm-3">
                         <!--cart-->
                         <div class="shopping_cart">
                             <div id="cart" class="btn-shopping-cart">
@@ -125,14 +125,14 @@
                                     <li>
                                         <table class="table table-striped">
                                             <tbody>
-                                                
+
                                                 <tr>
                                                     <td class="text-center" style="width:70px">
                                                         <a href="product.html">
                                                             <img src="image/catalog/demo/product/80/2.jpg" style="width:70px" alt="Xancetta bresao" title="Xancetta bresao" class="preview">
                                                         </a>
                                                     </td>
-                                                    <td class="text-left"> <a class="cart_product_name" href="product.html">Xancetta bresao</a> 
+                                                    <td class="text-left"> <a class="cart_product_name" href="product.html">Xancetta bresao</a>
                                                     </td>
                                                     <td class="text-center">x1</td>
                                                     <td class="text-center">$60.00</td>
@@ -172,7 +172,7 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <p class="text-right"> <a class="btn view-cart" href="cart.html"><i class="fa fa-shopping-cart"></i>View Cart</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-mega checkout-cart" href="checkout.html"><i class="fa fa-share"></i>Checkout</a> 
+                                            <p class="text-right"> <a class="btn view-cart" href="cart.html"><i class="fa fa-shopping-cart"></i>View Cart</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-mega checkout-cart" href="checkout.html"><i class="fa fa-share"></i>Checkout</a>
                                             </p>
                                         </div>
                                     </li>
@@ -189,10 +189,10 @@
                             </li>
                         </ul>
 
-                                            
-                        
+
+
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -203,12 +203,12 @@
         <div class="header-bottom hidden-compact">
             <div class="container">
                 <div class="row">
-                    
+
                     <div class="bottom1 menu-vertical col-lg-2 col-md-3 col-sm-3">
                         <div class="responsive so-megamenu megamenu-style-dev ">
                             <div class="so-vertical-menu ">
-                                <nav class="navbar-default">    
-                                    
+                                <nav class="navbar-default">
+
                                     <div class="container-megamenu vertical">
                                         <div id="menuHeading">
                                             <div class="megamenuToogle-wrapper">
@@ -219,18 +219,18 @@
                                                             <span></span>
                                                             <span></span>
                                                         </div>
-                                                        All Categories                          
+                                                        All Categories
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                     
+
                                     </nav>
                             </div>
                         </div>
 
                     </div>
-                    
+
                     <!-- Main menu -->
                     <div class="main-menu-w col-lg-10 col-md-9">
                         <div class="responsive so-megamenu megamenu-style-dev">
@@ -243,14 +243,14 @@
                                             <span class="icon-bar"></span>
                                         </button>
                                     </div>
-                                    
+
                                     <div class="megamenu-wrapper">
                                         <span id="remove-megamenu" class="fa fa-times"></span>
                                         <div class="megamenu-pattern">
                                             <div class="container-mega">
                                                 <ul class="megamenu" data-transition="slide" data-animationtime="250">
                                                     <li class="home hover">
-                                                        <a href="index.html">Home</a>
+                                                        <a href="{{route('home')}}">Home</a>
                                                     </li>
                                                     <li class="">
                                                         <p class="close-menu"></p>
@@ -277,7 +277,7 @@
                                                                                     <li><a href="category.html">{{ $subCategory->name }}</a></li>
                                                                                     @endforeach
                                                                                 </ul>
-                                                                                
+
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -291,7 +291,7 @@
                                                         <a href="#" class="clearfix">
                                                             <strong>Contact Us</strong>
                                                         </a>
-                                            
+
                                                     </li>
                                                     <li class="">
                                                         <p class="close-menu"></p>
@@ -308,7 +308,7 @@
                                                         </a>
                                                     </li>
                                                 </ul>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -317,20 +317,20 @@
                         </div>
                     </div>
                     <!-- //end Main menu -->
-                                      
-                    <div class="bottom3">                        
+
+                    <div class="bottom3">
                         <div class="telephone hidden-xs hidden-sm hidden-md">
-                            <ul class="blank"> 
-                                <li><a href="#"><i class="fa fa-phone-square"></i>Hotline (+123)4 567 890</a></li> 
+                            <ul class="blank">
+                                <li><a href="#"><i class="fa fa-phone-square"></i>Hotline (+123)4 567 890</a></li>
                             </ul>
-                        </div>  
+                        </div>
                         <div class="signin-w hidden-md hidden-sm hidden-xs">
-                            <ul class="signin-link blank">                            
-                                <li class="log login"><i class="fa fa-lock"></i> <a class="link-lg" href="login.html">Login </a> or <a href="register.html">Register</a></li>                                
-                            </ul>                       
-                        </div>                  
+                            <ul class="signin-link blank">
+                                <li class="log login"><i class="fa fa-lock"></i> <a class="link-lg" href="login.html">Login </a> or <a href="register.html">Register</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    
+
                 </div>
             </div>
 
