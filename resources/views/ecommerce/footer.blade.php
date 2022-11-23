@@ -96,12 +96,8 @@
                         </div>
                     </div>
                     @endforeach
-
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </div>
@@ -112,7 +108,6 @@
                                 <a href="#"><img src="image/catalog/demo/payment/pay1.jpg" alt="image"></a>
                                 <ul class="footer-links">
                                     <li><a href="#">About Us</a></li>
-                                    privacy-policy
                                     <li><a href="#">Customer Service</a></li>
                                     <li><a href="{{route('privacy-policy')}}">Privacy Policy</a></li>
                                     <li><a href="{{route('terms-condition')}}">Terms & Condition</a></li>

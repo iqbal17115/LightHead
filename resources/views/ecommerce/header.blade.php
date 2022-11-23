@@ -321,7 +321,7 @@
                                                 </li>
                                                 <li class="">
                                                     <p class="close-menu"></p>
-                                                    <a href="#" class="clearfix">
+                                                    <a href="{{route('about')}}" class="clearfix">
                                                         <strong>About Us</strong>
                                                     </a>
                                                 </li>
