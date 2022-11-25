@@ -67,6 +67,10 @@ class HomeController extends Controller
     {
         return view('ecommerce.privacy-policy');
     }
+    public function ReturnPolicy()
+    {
+        return view('ecommerce.return_policy');
+    }
     public function About()
     {
         return view('ecommerce.about');

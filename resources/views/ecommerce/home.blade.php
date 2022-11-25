@@ -346,7 +346,7 @@
                         </div>
                     </section>
 
-                    <h2><a href="http://www.webcoderskull.com" target="_blank">http://www.webcoderskull.com</a></h2>
+                    {{-- <h2><a href="http://www.webcoderskull.com" target="_blank">http://www.webcoderskull.com</a></h2> --}}
                 </div>
                 <!-- End Category -->
 

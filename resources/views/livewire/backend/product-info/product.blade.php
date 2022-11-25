@@ -27,7 +27,6 @@
                             <h4 class="card-title my-5">Add new product</h4>
                             {{-- <p class="card-title-desc">Fill all information below</p> --}}
 
-
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
@@ -36,6 +35,32 @@
                                             placeholder="Name">
                                         @error('name') <span class="error">{{ $message }}</span> @enderror
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="name">Heading</label>
+                                        <input id="name" type="text" class="form-control" wire:model.lazy="heading"
+                                            placeholder="Name">
+                                        @error('heading') <span class="error">{{ $message }}</span> @enderror
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="name">Tag</label>
+                                        <input id="name" type="text" class="form-control" wire:model.lazy="tag"
+                                            placeholder="Name">
+                                        @error('tag') <span class="error">{{ $message }}</span> @enderror
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="name">Title</label>
+                                        <input id="name" type="text" class="form-control" wire:model.lazy="title"
+                                            placeholder="Name">
+                                        @error('title') <span class="error">{{ $message }}</span> @enderror
+                                    </div>
+
+
+
                                     <div class="form-group" wire:ignore>
                                         <label class="control-label">Category</label>
                                         <select class="form-control select2" wire:model.lazy="category_id"
@@ -47,6 +72,8 @@
                                         </select>
                                         @error('category_id') <span class="error">{{ $message }}</span> @enderror
                                     </div>
+
+
                                     {{-- When we use wire:ignore Search problem --}}
                                     <div class="form-group">
                                         <label class="control-label">Sub Category</label>
@@ -58,8 +85,10 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <!-- @error('sub_category_id') <span class="error">{{ $message }}</span> @enderror -->
-                                     <div class="form-group">
+                                    @error('sub_category_id') <span class="error">{{ $message }}</span> @enderror
+
+
+                                    {{-- <div class="form-group">
                                         <label class="control-label">Sub-sub Category</label>
                                         <select class="form-control select2" wire:model.lazy="sub_sub_category_id"
                                             id="select2-dropdown">
@@ -68,8 +97,10 @@
                                             <option value="{{ $subSubCategory->id }}">{{ $subSubCategory->name }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                    <!-- @error('sub_sub_category_id') <span class="error">{{ $message }}</span> @enderror --}} -->
+                                    </div> --}}
+
+
+                                    {{-- @error('sub_sub_category_id') <span class="error">{{ $message }}</span> @enderror
                                     <div class="form-group" wire:ignore>
                                         <label class="control-label">Brand</label>
                                         <select class="form-control" wire:model.lazy="brand_id" id="select2-dropdown1">
@@ -79,45 +110,52 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    @error('brand_id') <span class="error">{{ $message }}</span> @enderror
+                                    @error('brand_id') <span class="error">{{ $message }}</span> @enderror --}}
 
-                                    <div class="form-group">
+
+                                    {{-- <div class="form-group">
                                         <label for="regular_price">Regular Price</label>
                                         <input id="regular_price" type="number" step="any" class="form-control"
                                             wire:model.debounce.150ms="regular_price" placeholder="Regular Price">
-                                        @error('regular_price') <span class="error">{{ $message }}</span> @enderror
                                     </div>
-                                    <div class="form-group">
+                                    @error('regular_price') <span class="error">{{ $message }}</span> @enderror --}}
+
+                                    {{-- <div class="form-group">
                                         <label for="special_price">Special Price</label>
                                         <input id="special_price" type="number" step="any" class="form-control"
                                             wire:model.debounce.150ms="special_price" placeholder="Special Price">
-                                        @error('special_price') <span class="error">{{ $message }}</span> @enderror
                                     </div>
-                                    <div class="form-group">
+                                    @error('special_price') <span class="error">{{ $message }}</span> @enderror --}}
+
+                                    {{-- <div class="form-group">
                                         <label for="wholesale_price">Wholesale Price</label>
                                         <input id="wholesale_price" type="number" step="any" class="form-control"
                                             wire:model.lazy="wholesale_price" placeholder="Wholesale Price">
-                                        @error('wholesale_price') <span class="error">{{ $message }}</span> @enderror
                                     </div>
-                                    <div class="form-group">
+                                    @error('wholesale_price') <span class="error">{{ $message }}</span> @enderror --}}
+
+                                    {{-- <div class="form-group">
                                         <label for="min_order_qty">Minimum Order Quantity</label>
                                         <input id="min_order_qty" type="number" step="any" class="form-control"
                                             wire:model.lazy="min_order_qty" placeholder="Minimum Order Quantity">
-                                    </div>
-                                    <div class="form-group">
+                                    </div> --}}
+
+                                    {{-- <div class="form-group">
                                         <label for="guarantee">Guarantee(Month)</label>
                                         <input id="guarantee" type="number" step="any" class="form-control"
                                             wire:model.lazy="guarantee" placeholder="guarantee">
-                                    </div>
-                                    <div class="form-group">
+                                    </div> --}}
+
+
+                                    {{-- <div class="form-group">
                                         <label class="control-label">Stock</label>
                                         <select class="form-control" wire:model.lazy="in_stock">
-                                            {{-- <option value="">Select</option> --}}
+                                            <option value="">Select</option>
                                             <option value="In Stock">In Stock</option>
                                             <option value="Out of Stock">Out of Stock</option>
                                         </select>
                                         @error('in_stock') <span class="error">{{ $message }}</span> @enderror
-                                    </div>
+                                    </div> --}}
 
 
                                     {{-- <div class="form-group">
@@ -136,7 +174,7 @@
 
 
 
-                                     <div class="form-group">
+                                     {{-- <div class="form-group">
                                           <label class="control-label">Featured</label>
                                             <select class="form-control" wire:model.lazy="product_feature_id">
                                                 <option value="">Select One</option>
@@ -145,15 +183,15 @@
                                                 @endforeach
                                             </select>
                                           @error('product_feature_id') <span class="error">{{ $message }}</span> @enderror
-                                     </div>
-
+                                     </div> --}}
+{{--
 
                                     <div wire:ignore class="form-group">
                                         <label for="basicpill-lastname-input">Short Description</label>
                                         <textarea class="form-control" id="short_description" rows="3"
                                             wire:model.lazy="short_description"
                                             placeholder="Short Description"> {{$short_description}}</textarea>
-                                    </div>
+                                    </div> --}}
                                 </div>
 
                                 <div class="col-sm-6">
@@ -163,13 +201,32 @@
                                             placeholder="Product Code">
                                         @error('code') <span class="error">{{ $message }}</span> @enderror
                                     </div>
+
+                                    <div class="form-group">
+                                        <label for="basicpill-firstname-input">Type</label>
+                                        <select class="form-control" wire:model.lazy="type">
+                                            <option value="">Select Type</option>
+                                            <option value="General">General</option>
+                                            <option value="App Development">App Development</option>
+                                            <option value="Software Development">Software Development</option>
+                                            <option value="True Caller Marketing">True Caller Marketing</option>
+                                            <option value="Website Optimization">Website Optimization</option>
+                                            <option value="Add Credit">Add Credit</option>
+                                            <option value="Sass Service">Sass Service</option>
+                                        </select>
+                                        @error('category_id') <span class="error">{{ $message }}</span> @enderror
+                                    </div>
+
+{{--
                                     <div class="form-group">
                                         <label for="purchase_price">Purchase Price</label>
                                         <input id="purchase_price" type="number" step="any" class="form-control"
                                             wire:model.lazy="purchase_price" placeholder="Purchase Price">
                                         @error('purchase_price') <span class="error">{{ $message }}</span> @enderror
-                                    </div>
-                                    <div class="form-group">
+                                    </div> --}}
+
+
+                                    {{-- <div class="form-group">
                                         <label class="control-label">Warehouse</label>
                                         <select class="form-control" wire:model.lazy="warehouse_id">
                                             <option value="">Select one</option>
@@ -178,12 +235,16 @@
                                             @endforeach
                                         </select>
                                         @error('warehouse_id') <span class="error">{{ $message }}</span> @enderror
-                                    </div>
-                                    <div class="form-group">
+                                    </div> --}}
+
+
+                                    {{-- <div class="form-group">
                                         <label for="stock_in_opening">Opening Stock</label>
                                         <input id="stock_in_opening" type="number" step="any" class="form-control"
                                             wire:model.lazy="stock_in_opening" placeholder="Opening Stock">
-                                    </div>
+                                    </div> --}}
+
+
                                     <div class="form-group">
                                         <label for="basicpill-lastname-input">Status</label>
                                         <select class="form-control" wire:model.lazy="is_active">
@@ -193,28 +254,38 @@
                                         </select>
                                         @error('is_active') <span class="error">{{ $message }}</span> @enderror
                                     </div>
-                                    <div class="form-group">
+
+
+                                    {{-- <div class="form-group">
                                         <label for="low_alert">Low Alert</label>
                                         <input id="low_alert" type="number" step="any" class="form-control"
                                             wire:model.lazy="low_alert" placeholder="Low Alert">
-                                    </div>
-                                    <div class="form-group">
+                                    </div> --}}
+
+
+                                    {{-- <div class="form-group">
                                         <label for="stock_in_opening">Youtube Link</label>
                                         <input type="text" class="form-control form-control-lg inputBox"
                                             wire:model.lazy="youtube_link" placeholder="Video Link" />
-                                    </div>
+                                    </div> --}}
+
+
                                     <div wire:ignore class="form-group">
-                                        <label for="basicpill-lastname-input">Long Description</label>
-                                        <textarea class="form-control" id="long_description" rows="3"
-                                            wire:model.lazy="long_description" placeholder="Long Description"
-                                            rows="8">{{$long_description}}</textarea>
+                                        <label for="basicpill-lastname-input">Description</label>
+                                        <textarea class="form-control" id="description" rows="3"
+                                            wire:model.lazy="description" placeholder="Long Description"
+                                            rows="8">{{$description}}</textarea>
                                     </div>
+
+{{--
                                     <div wire:ignore class="form-group">
                                         <label for="basicpill-lastname-input">Key Word</label>
                                         <textarea class="form-control" id="key_word" rows="3"
                                             wire:model.lazy="key_word" placeholder="Key Word"
                                             rows="8">{{$key_word}}</textarea>
-                                    </div>
+                                    </div> --}}
+
+
                                 </div>
                             </div>
                         </div>
@@ -222,7 +293,6 @@
 
                     <div class="card">
                         <div class="card-body">
-
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -231,21 +301,21 @@
                                             Processing Image...
                                         </div> --}}
                                         <input type="file" class="form-control form-control-lg inputBox"
-                                            wire:model.lazy="product_image" />
-                                        @error('product_image') <span class="error">{{ $message }}</span> @enderror
-                                        @if ($product_image)
-                                        <img src="{{ $product_image->temporaryUrl() }}"
+                                            wire:model.lazy="image1" />
+                                        @error('image1') <span class="error">{{ $message }}</span> @enderror
+                                        @if ($image1)
+                                        <img src="{{ $image1->temporaryUrl() }}"
                                             style="height:150px; weight:150px;" alt="Image"
                                             class="img-circle img-fluid">
                                         @endif
-                                        @if($QueryUpdate && !$product_image)
+                                        @if($QueryUpdate && !$image1)
                                         <div ng-repeat="file in imagefinaldata" class="img_wrp m-1">
-                                            @if($QueryUpdate->ProductImageFirst)
+                                            @if($QueryUpdate->image1)
                                             <img style="height:150px; weight:150px;"
-                                                src="{{ asset('storage/photo/'.$QueryUpdate->ProductImageFirst->image) }}"
+                                                src="{{ asset('storage/photo/'.$QueryUpdate->image1) }}"
                                                 class="rounded mb-1 imgResponsiveMax" alt="" />
                                             <div class="close text-danger"
-                                                wire:click="imageDelete({{$QueryUpdate->ProductImageFirst->id}})"
+                                                wire:click="imageDelete({{$QueryUpdate->id}})"
                                                 style="cursor:pointer;">
                                                 <span aria-hidden="true">&times;</span>
                                             </div>
@@ -254,6 +324,41 @@
                                         @endif
                                     </div>
                                 </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="low_alert"> Image(Max height 190px) </label>
+                                        {{-- <div wire:loading wire:target="product_image">
+                                            Processing Image...
+                                        </div> --}}
+                                        <input type="file" class="form-control form-control-lg inputBox"
+                                            wire:model.lazy="image2" />
+                                        @error('image2') <span class="error">{{ $message }}</span> @enderror
+                                        @if ($image2)
+                                        <img src="{{ $image2->temporaryUrl() }}"
+                                            style="height:150px; weight:150px;" alt="Image"
+                                            class="img-circle img-fluid">
+                                        @endif
+                                        @if($QueryUpdate && !$image2)
+                                        <div ng-repeat="file in imagefinaldata" class="img_wrp m-1">
+                                            @if($QueryUpdate->image2)
+                                            <img style="height:150px; weight:150px;"
+                                                src="{{ asset('storage/photo/'.$QueryUpdate->image2) }}"
+                                                class="rounded mb-1 imgResponsiveMax" alt="" />
+                                            <div class="close text-danger"
+                                                wire:click="imageDelete({{$QueryUpdate->id}})"
+                                                style="cursor:pointer;">
+                                                <span aria-hidden="true">&times;</span>
+                                            </div>
+                                            @endif
+                                        </div>
+                                        @endif
+                                    </div>
+                                </div>
+
+
+{{--
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="low_alert">Product Gallery Image(Max height 190px)</label><br>
@@ -283,7 +388,7 @@
                                         </div>
                                     </div>
                                     @endforeach
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
 
@@ -363,9 +468,9 @@
     });
 
   }
-  if ($("#long_description").length > 0) {
+  if ($("#description").length > 0) {
     tinymce.init({
-      selector: "textarea#long_description",
+      selector: "textarea#description",
       height: 200,
 	   forced_root_block: false,
         setup: function (editor) {
@@ -373,7 +478,7 @@
                 editor.save();
             });
             editor.on('change', function (e) {
-            @this.set('long_description', editor.getContent());
+            @this.set('description', editor.getContent());
             });
         },
       plugins: ["advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker", "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking", "save table contextmenu directionality emoticons template paste textcolor"],

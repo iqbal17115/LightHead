@@ -1,35 +1,106 @@
 @extends('layouts.ecommerce')
 @section('content')
-    <main class="main about">
-        <div class="page-header page-header-bg text-left"
-            style="background: 50%/cover #D4E1EA url('assets/images/page-header-bg.jpg');">
-            <div class="container">
-                <h1><span>ABOUT US</span>
-                    @if ($companyInfo)
-                        {{ $companyInfo->name }}
-                    @endif
-                </h1>
-                <a href="{{ route('contact') }}" class="btn btn-dark">Contact</a>
-            </div><!-- End .container -->
-        </div><!-- End .page-header -->
+<style>
+    .center {
+        display: flex;
+        justify-content: center;
+    }
 
-        <nav aria-label="breadcrumb" class="breadcrumb-nav">
-            <div class="container">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="icon-home"></i></a></li>
-                    <li class="breadcrumb-item active" aria-current="page">About Us</li>
-                </ol>
-            </div><!-- End .container -->
-        </nav>
+    .containerss {
+        position: relative;
+        text-align: center;
+        color: white;
+    }
 
-        <div class="about-section">
-            <div class="container">
-                <h2 class="subtitle">OUR STORY</h2>
-                @if ($companyInfo)
-                    {!! $companyInfo->about_us !!}
-                @endif
-            </div><!-- End .container -->
-        </div><!-- End .about-section -->
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+<main class="main about">
+    <div class="page-header page-header-bg text-left">
+        <div class="col-md-12 center" style="background-color: aquamarine">
+            <div class="col-md-6 ml-6">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRWu7i6R9krXAMoqflVyrm4Us6kak273xZCTQfHgPSMW5ryTTsf_PBBPxrzy75E31plg&usqp=CAU"
+                    alt="..." class="img-thumbnail">
+            </div>
+            <div class="col-md-6">
+                <p>sdfsdfsdfsdfsd</p>
+            </div>
+        </div>
 
-    </main><!-- End .main -->
+        <div class="col-md-12 center" style="background-color: rgb(52, 105, 61)">
+            <div class="col-md-6">
+                <p>sdfsdfsdfsdfsd</p>
+            </div>
+
+            <div class="col-md-6">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRWu7i6R9krXAMoqflVyrm4Us6kak273xZCTQfHgPSMW5ryTTsf_PBBPxrzy75E31plg&usqp=CAU"
+                    alt="..." class="img-thumbnail">
+            </div>
+        </div>
+
+        <div class="col-md-12 center" style="background-color: rgb(16, 209, 235)">
+            <div class="col-md-6">
+                <p>Our Vision</p>
+            </div>
+
+            <div class="col-md-6">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRWu7i6R9krXAMoqflVyrm4Us6kak273xZCTQfHgPSMW5ryTTsf_PBBPxrzy75E31plg&usqp=CAU"
+                    alt="..." class="img-thumbnail">
+            </div>
+        </div>
+
+        <div class="col-md-12 center" style="background-color: rgb(226, 19, 157)">
+            <p>Our Mission</p>
+        </div>
+
+
+        <div class="col-md-12 center" style="background-color: rgb(179, 187, 192)">
+            <p>Our Value</p>
+        </div>
+
+        <div class="col-md-12 center" style="background-color: rgb(179, 187, 192)">
+            <div class="col-md-4 containerss">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRWu7i6R9krXAMoqflVyrm4Us6kak273xZCTQfHgPSMW5ryTTsf_PBBPxrzy75E31plg&usqp=CAU"
+                    alt="..." class="img-thumbnail">
+                <div class="centered">Centered</div>
+            </div>
+            <div class="col-md-4 containerss">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRWu7i6R9krXAMoqflVyrm4Us6kak273xZCTQfHgPSMW5ryTTsf_PBBPxrzy75E31plg&usqp=CAU"
+                    alt="..." class="img-thumbnail">
+                    <div class="centered">Centered</div>
+            </div>
+            <div class="col-md-4 containerss">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRWu7i6R9krXAMoqflVyrm4Us6kak273xZCTQfHgPSMW5ryTTsf_PBBPxrzy75E31plg&usqp=CAU"
+                    alt="..." class="img-thumbnail">
+                    <div class="centered">Centered</div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12 center" style="background-color: rgb(226, 19, 157)">
+               our Value
+        </div>
+
+        <div class="col-md-12 center" style="background-color: rgb(179, 187, 192)">
+            <div class="col-md-6">
+                <p>Test test</p>
+                <p>Test test</p>
+                <p>Test test</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRWu7i6R9krXAMoqflVyrm4Us6kak273xZCTQfHgPSMW5ryTTsf_PBBPxrzy75E31plg&usqp=CAU"
+                alt="..." class="img-thumbnail">
+            </div>
+        </div>
+
+
+        <div class="col-md-12 center" style="background-color: rgb(223, 16, 95)">
+             <p>Making Marketing Smarter</p>
+        </div>
+    </div>
+</main>
 @endsection

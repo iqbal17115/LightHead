@@ -3,7 +3,7 @@
 @endpush
 <div>
     <x-slot name="title">
-        Portfolio
+        Blog
     </x-slot>
     <div class="row">
         <div class="col-12">
@@ -13,7 +13,7 @@
                         <div class="col-sm-4">
                             <div class="search-box mr-2 mb-2 d-inline-block">
                                 <div class="position-relative">
-                                    <h4>Portfolio List</h4>
+                                    <h4>Blog List</h4>
                                 </div>
                             </div>
                         </div>
@@ -21,15 +21,14 @@
                             <div class="text-sm-right">
                                 <button type="button"
                                     class="btn btn-success btn-rounded waves-effect waves-light mb-2 mr-2"
-                                    wire:click="portfolioModal"><i class="mdi mdi-plus mr-1"></i>New Portfolio</button>
+                                    wire:click="blogModal"><i class="mdi mdi-plus mr-1"></i>New Blog</button>
                             </div>
                         </div><!-- end col-->
                     </div>
                     <div wire:ignore class="table-responsive">
                         <div wire:ignore class="table-responsive">
-                            <table class="table table-bordered dt-responsive nowrap" id="PortfolioTable"
-                                style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                            </table>
+                            <table class="table table-bordered dt-responsive nowrap" id="BlogTable"
+                                style="border-collapse: collapse; border-spacing: 0; width: 100%;"></table>
                         </div>
                     </div>
                 </div>
@@ -37,33 +36,34 @@
         </div>
     </div>
     <!--  Modal content for the above example -->
-    <div wire:ignore.self class="modal fade" id="portfolioModal" tabindex="-1" role="dialog"
+    <div wire:ignore.self class="modal fade" id="blogModal" tabindex="-1" role="dialog"
         aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Portfolio</h5>
+                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Blog</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form wire:submit.prevent="portfolioSave">
+                <form wire:submit.prevent="paymentSave">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="basicpill-firstname-input">Name</label>
-                                    <input class="form-control" type="text" wire:model.lazy="name"
-                                        placeholder="Name">
-                                    @error('name') <span class="error">{{ $message }}</span> @enderror
+                                    <label for="basicpill-lastname-input">Title</label>
+                                    <input class="form-control" type="text" wire:model.lazy="title"
+                                        placeholder="Enter Title">
+                                    @error('title') <span class="error">{{ $message }}</span> @enderror
                                 </div>
                             </div>
+
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="basicpill-lastname-input">link</label>
-                                    <input class="form-control" type="text" wire:model.lazy="link"
-                                        placeholder="Enter Name">
-                                    @error('link') <span class="error">{{ $message }}</span> @enderror
+                                    <label for="basicpill-lastname-input">Sub Title</label>
+                                    <input class="form-control" type="text" wire:model.lazy="sub_title"
+                                        placeholder="Enter Sub Title">
+                                    @error('sub_title') <span class="error">{{ $message }}</span> @enderror
                                 </div>
                             </div>
 
@@ -74,29 +74,35 @@
                                         <input type="file" wire:model.lazy="image" x-ref="image">
                                         @if (!$image)
                                             @if($QueryUpdate)
-                                                <img src="{{ asset('storage/photo/'.$QueryUpdate->image)}}"
-                                                    style="height:100px; weight:100px;" alt="image"
-                                                    class="img-circle img-fluid">
+                                            <img src="{{ asset('storage/photo/'.$QueryUpdate->image)}}"
+                                                style="height:100px; weight:100px;" alt="Image1"
+                                                class="img-circle img-fluid">
                                             @endif
                                         @endif
                                         @if ($image)
-                                            <img src="{{ $image->temporaryUrl() }}" style="height:100px; weight:100px;"
-                                                alt="Image" class="img-circle img-fluid">
+                                        <img src="{{ $image->temporaryUrl() }}" style="height:100px; weight:100px;"
+                                            alt="Image" class="img-circle img-fluid">
                                         @endif
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-lg-12">
+                            {{-- Input description --}}
+                            {{-- <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label class="control-label">Product</label>
-                                    <select class="form-control select2" wire:model.lazy="product_id"
-                                        id="select2-dropdown">
-                                        <option>Select</option>
-                                            @foreach ($products as $product)
-                                            <option value="{{ $product->id }}">{{ $product->name }}</option>
-                                            @endforeach
-                                    </select>
+                                    <textarea class="form-control" wire:model.lazy="description"
+                                        placeholder="Description"></textarea>
+                                </div>
+                            </div> --}}
+
+
+                            {{-- summernote description --}}
+                            <div class="col-lg-12">
+                                <div wire:ignore class="form-group">
+                                    <label for="basicpill-lastname-input">Description</label>
+                                    <textarea class="form-control" id="description" rows="3"
+                                        wire:model.lazy="description"
+                                        placeholder="Description">{{$description}}</textarea>
                                 </div>
                             </div>
 
@@ -151,26 +157,34 @@
 @push('scripts')
 <script>
     function callEdit(id) {
-        @this.call('portfolioEdit', id);
+        @this.call('blogEdit', id);
     }
     function callDelete(id) {
         @this.call('DeleteModal', id);
     }
         $(document).ready(function () {
-            var datatable = $('#PortfolioTable').DataTable({
+            var datatable = $('#BlogTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{route('data.portfolio_table')}}",
+                ajax: "{{route('data.blog_table')}}",
                 columns: [
                     {
                         title: 'SL',
                         data: 'id'
                     },
+
                     {
-                        title: 'Name',
-                        data:  'name',
-                        name:  'name'
+                        title: 'Title',
+                        data:  'title',
+                        name:  'title'
                     },
+
+                    {
+                        title: 'Image',
+                        data:  'sub_title',
+                        name:  'sub_title'
+                    },
+
                     {
                         title: 'Image',
                         data:  'image',
@@ -178,15 +192,9 @@
                     },
 
                     {
-                        title: 'Link',
-                        data:  'link',
-                        name:  'link'
-                    },
-
-                    {
-                        title: 'Product',
-                        data:  'product_id',
-                        name:  'product_id'
+                        title: 'Description',
+                        data:  'description',
+                        name:  'description'
                     },
 
                     {

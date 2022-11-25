@@ -57,12 +57,17 @@ use App\Http\Livewire\Backend\Setting\WhyWeAreDifferent;
 use App\Http\Livewire\Backend\Setting\HowWeWillHelp;
 use App\Http\Livewire\Backend\Setting\WhoTrust;
 use App\Http\Livewire\Backend\Setting\Affiliation;
+use App\Http\Livewire\Backend\Setting\Carrer;
 use App\Http\Livewire\Backend\ProductInfo\Package;
 use App\Http\Livewire\Backend\ProductInfo\Portfolio;
+use App\Http\Livewire\Backend\Setting\PayNow;
+use App\Http\Livewire\Backend\Blog\Blog;
 use App\Http\Livewire\Backend\Setting\Vat;
 use App\Http\Livewire\Backend\Setting\Warehouse;
 use App\Http\Livewire\Backend\Setting\Language;
 use App\Http\Livewire\Backend\Setting\ManageLanguage;
+// use App\Http\Livewire\Backend\Setting\Career;
+use App\Http\Livewire\Backend\Setting\AboutUs;
 use App\Http\Livewire\Backend\ContactUs\Message;
 use App\Http\Livewire\Backend\Transaction\CustomerPayment;
 use App\Http\Livewire\Backend\Transaction\CustomerPaymentReport;
@@ -158,13 +163,14 @@ Route::get('contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('about', [HomeController::class, 'About'])->name('about');
 Route::get('privacy-policy', [HomeController::class, 'PrivacyPolicy'])->name('privacy-policy');
 Route::get('terms-condition', [HomeController::class, 'TermsAndCondition'])->name('terms-condition');
+Route::get('return-policy', [HomeController::class, 'ReturnPolicy'])->name('return-policy');
 Route::get('category', FrontEndCategory::class)->name('category');
 Route::get('sign-in', SignIn::class)->name('sign-in');
 Route::get('sign-up', SignUp::class)->name('sign-up');
 Route::get('log-in', LogIn::class)->name('log-in');
 Route::get('contact-us', ContactUs::class)->name('contact-us');
 Route::get('my-profile', MyProfile::class)->name('my-profile');
-Route::get('return-policy', ReturnPolicy::class)->name('return-policy');
+// Route::get('return-policy', ReturnPolicy::class)->name('return-policy');
 Route::get('message', Message::class)->name('message');
 
 
@@ -240,10 +246,18 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('how_we_will_help', HowWeWillHelp::class)->name('how_we_will_help');
             Route::get('who_trust', WhoTrust::class)->name('who_trust');
             Route::get('affiliation', Affiliation::class)->name('affiliation');
+            Route::get('carrer', Carrer::class)->name('carrer');
             Route::get('point-policy', PointPolicy::class)->name('point-policy');
             Route::get('breaking-news', BreakingNews::class)->name('breaking-news');
+            Route::get('carrer', Carrer::class)->name('carrer');
+            Route::get('about-us-info', AboutUs::class)->name('about-us-info');
+            Route::get('pay-now', PayNow::class)->name('pay-now');
             Route::get('language', Language::class)->name('language');
             Route::get('manage-language/{id?}', ManageLanguage::class)->name('manage-language');
+        });
+
+        Route::group(['prefix' => 'blog', 'as' => 'blog.'], function () {
+            Route::get('blog', Blog::class)->name('blog');
         });
 
         Route::group(['prefix' => 'order',  'as' => 'order.'], function () {
@@ -318,7 +332,10 @@ Route::group(['middleware' => ['role:admin|user|manager|editor']], function () {
             Route::get('all_user_table', [DatatableController::class, 'AllUserList'])->name('all_user_table');
             Route::get('offer_table', [DatatableController::class, 'OfferList'])->name('offer_table');
             Route::get('package_table', [DatatableController::class, 'PackageTable'])->name('package_table');
-
+            Route::get('portfolio_table', [DatatableController::class, 'PortfolioTable'])->name('portfolio_table');
+            Route::get('carrer_table', [DatatableController::class, 'CarrerTable'])->name('carrer_table');
+            Route::get('pay_now_table', [DatatableController::class, 'PayNowTable'])->name('pay_now_table');
+            Route::get('blog_table', [DatatableController::class, 'BlogTable'])->name('blog_table');
         });
     });
 });

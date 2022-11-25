@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Backend\ContactInfo\Contact;
 use App\Models\Backend\ContactInfo\ContactCategory;
 use App\Models\Backend\Inventory\Invoice;
@@ -29,6 +27,11 @@ use App\Models\Backend\Setting\Warehouse;
 use App\Models\Backend\Setting\HowWeWillHelp;
 use App\Models\Backend\Setting\WhoTrust;
 use App\Models\Backend\Setting\Affiliation;
+use App\Models\Backend\Setting\Carrer;
+use App\Models\Backend\ProductInfo\Package;
+use App\Models\Backend\ProductInfo\Portfolio;
+use App\Models\Backend\Setting\PayNow;
+use App\Models\Backend\Blog\Blog;
 use App\Models\FrontEnd\Vendor;
 use App\Models\Inventory\Category;
 use App\Models\Inventory\Currency;
@@ -171,6 +174,44 @@ class DatatableController extends Controller
             ->addColumn('id', function ($data) {
                 return $this->i++;
             })
+            ->toJSON();
+    }
+
+    public function PackageTable()
+    {
+        $Query = Package::query()->orderBy('id', 'desc')->get();
+        $this->i = 1;
+        return Datatables::of($Query)
+            ->addColumn('id', function ($data) {
+                return $this->i++;
+            })
+            ->addColumn('action', function ($data) {
+                return '<button class="btn btn-primary btn-sm" onclick="callEdit('.$data->id.')">Edit</button>
+                    <button class="btn btn-danger btn-sm" onclick="callDelete('.$data->id.')">Delete</button>';
+            })
+            ->rawColumns(['action'])
+            ->toJSON();
+    }
+
+
+    public function PortfolioTable()
+    {
+        $Query = Portfolio::query()->orderBy('id', 'desc')->get();
+        $this->i = 1;
+        return Datatables::of($Query)
+            ->addColumn('id', function ($data) {
+                return $this->i++;
+            })
+
+            ->addColumn('is_active', function ($data) {
+                return $data->is_active == 1 ? 'Active' : 'Inactive';
+            })
+
+            ->addColumn('action', function ($data) {
+                return '<button class="btn btn-primary btn-sm" onclick="callEdit('.$data->id.')">Edit</button>
+                    <button class="btn btn-danger btn-sm" onclick="callDelete('.$data->id.')">Delete</button>';
+            })
+            ->rawColumns(['product_id','image','action'])
             ->toJSON();
     }
 
@@ -868,40 +909,54 @@ class DatatableController extends Controller
     public function ProductTable()
     {
         $Query = Product::with('Category:id,name')->orderBy('id', 'desc');
-
         $this->i = 1;
 
         return Datatables::of($Query)
             ->addColumn('id', function ($data) {
                 return $this->i++;
             })
-            // ->addColumn('category_id', function ($data) {
-            //     return $data->Category ? $data->Category->name : '';
-            // })
-            ->addColumn('product_id', function ($data) {
+            ->addColumn('category_id', function ($data) {
+                return $data->Category ? $data->Category->name : '';
+            })
+
+            ->addColumn('sub_category_id', function ($data) {
+                return $data->SubCategory ? $data->SubCategory->name : '';
+            })
+
+            ->addColumn('image1', function ($data) {
                 // return $data->ProductImageFirst ? $data->ProductImageFirst->image : '';
-                if ($data->ProductImageFirst) {
-                    $url = asset('storage/photo/'.$data->ProductImageFirst->image);
+                if ($data->image1) {
+                    $url = asset('storage/photo/'.$data->image1);
                 } else {
                     $url = '';
                 }
-
                 return '<img src="'.$url.'" style="height:92px; weight:138px;" alt="Image" class="img-fluid mx-auto d-block"/>';
             })
+
+            ->addColumn('image2', function ($data) {
+                // return $data->ProductImageFirst ? $data->ProductImageFirst->image : '';
+                if ($data->image2) {
+                    $url = asset('storage/photo/'.$data->image2);
+                } else {
+                    $url = '';
+                }
+                return '<img src="'.$url.'" style="height:92px; weight:138px;" alt="Image" class="img-fluid mx-auto d-block"/>';
+            })
+
+
             ->addColumn('is_active', function ($data) {
                 return $data->is_active == 1 ? 'Active' : 'Inactive';
             })
             ->addColumn('action', function ($data) {
                 $html = '';
-                $html .= '<button class="btn btn-info btn-sm" onclick="callDetail('.$data->id.')"><i class="fas fa-eye font-size-12"></i></button>
-                    <a class="btn btn-primary btn-sm" href="'.route('product.product', ['id' => $data->id]).'" data-id="'.$data->id.'"><i class="bx bx-edit font-size-12"></i></a>';
+                $html .=
+                '<a class="btn btn-primary btn-sm" href="'.route('product.product', ['id' => $data->id]).'" data-id="'.$data->id.'"><i class="bx bx-edit font-size-12"></i></a>';
                 if (!$data->OrderDetail && !$data->AddToCard) {
                     $html .= '<button class="btn btn-danger btn-sm" onclick="callDelete('.$data->id.')"><i class="bx bx-window-close font-size-12"></i></button>';
                 }
-
                 return $html;
             })
-            ->rawColumns(['category_id', 'image', 'product_id', 'is_active', 'action'])
+            ->rawColumns(['category_id', 'image1', 'image2', 'product_id', 'is_active', 'action'])
             ->toJSON();
     }
 
@@ -1023,4 +1078,84 @@ class DatatableController extends Controller
             })
             ->toJSON();
     }
+
+    public function CarrerTable()
+    {
+        $Query = Carrer::query()->orderBy('id', 'desc');
+        $this->i = 1;
+
+        return Datatables::of($Query)
+            ->addColumn('id', function ($data) {
+                return $this->i++;
+            })
+            ->addColumn('is_active', function ($data) {
+                return $data->is_active == 1 ? 'Active' : 'Inactive';
+            })
+            ->addColumn('cerculer_image', function ($data) {
+                $url = asset('storage/photo/'.$data->cerculer_image);
+                return '<img src="'.$url.'" style="height:92px; weight:138px;" alt="Image1" class="img-fluid mx-auto d-block"/>';
+            })
+            ->addColumn('action', function ($data) {
+                $html = '';
+                    $html .= '<button class="btn btn-primary btn-sm" onclick="callEdit('.$data->id.')"><i class="bx bx-edit font-size-18"></i></button>';
+                    $html .= '<button class="btn btn-danger btn-sm" onclick="callDelete('.$data->id.')"><i class="bx bx-window-close font-size-18"></i></button>';
+                return $html;
+            })
+            ->rawColumns(['cerculer_image', 'is_active', 'action'])
+            ->toJSON();
+    }
+
+
+    public function PayNowTable()
+    {
+        $Query = PayNow::query()->orderBy('id', 'desc');
+        $this->i = 1;
+
+        return Datatables::of($Query)
+            ->addColumn('id', function ($data) {
+                return $this->i++;
+            })
+            ->addColumn('is_active', function ($data) {
+                return $data->is_active == 1 ? 'Active' : 'Inactive';
+            })
+            ->addColumn('image', function ($data) {
+                $url = asset('storage/photo/'.$data->image);
+                return '<img src="'.$url.'" style="height:92px; weight:138px;" alt="Image1" class="img-fluid mx-auto d-block"/>';
+            })
+            ->addColumn('action', function ($data) {
+                $html = '';
+                    $html .= '<button class="btn btn-primary btn-sm" onclick="callEdit('.$data->id.')"><i class="bx bx-edit font-size-18"></i></button>';
+                    $html .= '<button class="btn btn-danger btn-sm" onclick="callDelete('.$data->id.')"><i class="bx bx-window-close font-size-18"></i></button>';
+                return $html;
+            })
+            ->rawColumns(['image', 'is_active', 'action'])
+            ->toJSON();
+    }
+
+    public function BlogTable()
+    {
+        $Query = Blog::query()->orderBy('id', 'desc');
+        $this->i = 1;
+
+        return Datatables::of($Query)
+            ->addColumn('id', function ($data) {
+                return $this->i++;
+            })
+            ->addColumn('is_active', function ($data) {
+                return $data->is_active == 1 ? 'Active' : 'Inactive';
+            })
+            ->addColumn('image', function ($data) {
+                $url = asset('storage/photo/'.$data->image);
+                return '<img src="'.$url.'" style="height:92px; weight:138px;" alt="Image1" class="img-fluid mx-auto d-block"/>';
+            })
+            ->addColumn('action', function ($data) {
+                $html = '';
+                    $html .= '<button class="btn btn-primary btn-sm" onclick="callEdit('.$data->id.')"><i class="bx bx-edit font-size-18"></i></button>';
+                    $html .= '<button class="btn btn-danger btn-sm" onclick="callDelete('.$data->id.')"><i class="bx bx-window-close font-size-18"></i></button>';
+                return $html;
+            })
+            ->rawColumns(['image', 'is_active', 'action'])
+            ->toJSON();
+    }
+
 }

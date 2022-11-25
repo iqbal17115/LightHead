@@ -1,8 +1,6 @@
 <!-- ========== Left Sidebar Start ========== -->
 <div class="vertical-menu">
-
     <div data-simplebar class="h-100">
-
         <!--- Sidemenu -->
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
@@ -54,9 +52,24 @@
                         <li><a href="{{route('setting.who_trust')}}">Who Trust</a></li>
                         <li><a href="{{route('setting.affiliation')}}">Affiliation</a></li>
                         <li><a href="{{route('setting.companyinfo')}}">Company Info</a></li>
+                        <li><a href="{{route('setting.carrer')}}">Carrer</a></li>
+                        <li><a href="{{route('setting.pay-now')}}">Pay Now</a></li>
+                        <li><a href="{{route('setting.about-us-info')}}">About Us Info</a></li>
                         <li><a href="{{route('setting.currency')}}">Currency</a></li>
                     </ul>
                 </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-list-ul"></i>
+                        <span>Blog</span>
+                    </a>
+                    
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('blog.blog')}}">Blog</a></li>
+                    </ul>
+                </li>
+
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">

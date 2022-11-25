@@ -19,42 +19,40 @@ class Package extends Component
     public $DeleteId;
 
     public function ConfirmDelete(){
-        $this->categoryDelete($this->DeleteId);
+        $this->packageDelete($this->DeleteId);
         $this->reset(['DeleteId']);
         $this->emit('modal', 'DeletePopup');
     }
+
+
     public function DeleteModal($id){
         $this->DeleteId=$id;
         $this->emit('modal', 'DeletePopup');
-    //   dd($id);
     }
-    public function categoryEdit($id)
+
+
+    public function packageEdit($id)
     {
-        $this->QueryUpdate = ProductInfoCategory::find($id);
-        $this->CategoryId = $this->QueryUpdate->id;
-        $this->code = $this->QueryUpdate->code;
+        $this->QueryUpdate = packageModal::find($id);
+        $this->PackageId = $this->QueryUpdate->id;
         $this->name = $this->QueryUpdate->name;
-        // $this->image1 = $this->QueryUpdate->image1;
-        // $this->image2 = $this->QueryUpdate->image2;
+        $this->price = $this->QueryUpdate->price;
+        $this->title = $this->QueryUpdate->title;
         $this->description = $this->QueryUpdate->description;
         $this->is_active = $this->QueryUpdate->is_active;
-        $this->top_show = $this->QueryUpdate->top_show;
-
-        $this->emit('modal', 'categoryModal');
+        $this->emit('modal', 'packageModal');
     }
 
-    public function categoryDelete($id)
+    public function packageDelete($id)
     {
-        ProductInfoCategory::find($id)->delete();
-
+        packageModal::find($id)->delete();
         $this->emit('success', [
-            'text' => 'Category Deleted Successfully',
+            'text' => 'Package Deleted Successfully',
         ]);
     }
 
     public function packageModal()
     {
-        // $this->reset();
         $this->emit('modal', 'packageModal');
     }
 
@@ -67,7 +65,7 @@ class Package extends Component
         ]);
 
         if ($this->PackageId) {
-            $Query = packageModal::find($this->CategoryId);
+            $Query = packageModal::find($this->PackageId);
         } else {
             $Query = new packageModal();
         }
