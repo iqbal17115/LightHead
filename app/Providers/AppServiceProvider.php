@@ -7,6 +7,7 @@ use App\Models\Backend\Inventory\SaleInvoiceDetail;
 use App\Models\Backend\ProductInfo\Category;
 use App\Models\Backend\Setting\BreakingNews;
 use App\Models\Backend\Setting\CompanyInfo;
+use App\Models\Backend\Setting\AboutUs;
 use App\Models\UserProfile\ProfileSetting;
 use App\Models\Backend\Setting\InvoiceSetting;
 use App\Models\Backend\Setting\Language;
@@ -49,6 +50,7 @@ class AppServiceProvider extends ServiceProvider
             // $view->with('subCategories', SubCategory::orderBy('id', 'desc')->get());
             // $view->with('subSubCategories', SubSubCategory::orderBy('id', 'desc')->get());
             $view->with('companyInfo', CompanyInfo::first());
+            $view->with('AboutUsInfo', AboutUs::first());
             $view->with('InvoiceSetting', InvoiceSetting::first());
             $view->with('currencySymbol', Currency::whereIsActive(1)->first());
             $view->with('cardBadge', AddToCardService::cardTotalProductAndAmount());
