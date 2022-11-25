@@ -87,8 +87,13 @@ class AboutUs extends Component
         $Query->value_heading = $this->value_heading;
         $Query->value_description = $this->value_description;
         $Query->total_client = $this->total_client;
-        $Query->total_client_background_image = $this->total_client_background_image;
         $Query->total_year_record = $this->total_year_record;
+
+
+        if ($this->total_client_background_image) {
+            $path = $this->total_client_background_image->store('/public/photo');
+            $Query->total_client_background_image = basename($path);
+        }
 
         if ($this->total_year_background_image) {
             $path = $this->total_year_background_image->store('/public/photo');

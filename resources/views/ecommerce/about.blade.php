@@ -33,14 +33,14 @@
         font-weight: 400;
     }
 
-    .content-heading{
+    .content-heading {
         font-family: Arial, Helvetica, sans-serif;
         color: #FFFFFF;
         font-size: 26px;
         text-shadow: 0px 0px 0px rgb(0 0 0 / 30%);
     }
 
-    .content-heading-description{
+    .content-heading-description {
         font-family: Arial, Helvetica, sans-serif;
         color: #FFFFFF;
         line-height: 1.2;
@@ -48,12 +48,65 @@
         text-shadow: 0px 0px 0px rgb(0 0 0 / 30%);
     }
 
-    .vision_heading{
+    .vission_heading {
         font-family: Arial, Helvetica, sans-serif;
         color: #FFFFFF;
-        font-size: 36px;
+        margin-top: 66px;
+        font-size: 25px;
         text-shadow: 0px 0px 0px rgb(0 0 0 / 30%);
     }
+
+    .vission_sub_heading {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #FFFFFF;
+        margin-top: 38px;
+        font-size: 25px;
+        text-shadow: 0px 0px 0px rgb(0 0 0 / 30%);
+    }
+
+    .vission_description {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #FFFFFF;
+        margin-top: 66px;
+        line-height: 1.4;
+        font-size: 20px;
+        text-shadow: 0px 0px 0px rgb(0 0 0 / 30%);
+    }
+
+    .mission_heading {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #FFFFFF;
+        margin-top: 66px;
+        font-size: 25px;
+        text-shadow: 0px 0px 0px rgb(0 0 0 / 30%);
+    }
+
+    .mission_sub_heading {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #FFFFFF;
+        margin-top: 19px;
+        font-size: 25px;
+        text-shadow: 0px 0px 0px rgb(0 0 0 / 30%);
+    }
+
+    .mission_description {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #FFFFFF;
+        margin-top: 66px;
+        line-height: 1.4;
+        font-size: 20px;
+        text-shadow: 0px 0px 0px rgb(0 0 0 / 30%);
+    }
+
+    .making_marketing {
+        font-family: 'Circular-Loom';
+        color: #FFFFFF;
+        margin-top: 101px;
+        font-size: 51px;
+        text-shadow: 0px 0px 0px rgb(0 0 0 / 30%);
+        height: 128px;
+    }
+
 
     .page-header {
         padding-bottom: 3px;
@@ -104,7 +157,7 @@
     <div class="page-header page-header-bg text-left">
         <div class="col-md-12 center" style="background-color: aquamarine">
             <div class="col-md-6 ml-6">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRWu7i6R9krXAMoqflVyrm4Us6kak273xZCTQfHgPSMW5ryTTsf_PBBPxrzy75E31plg&usqp=CAU"
+                <img src="{{ URL::asset('images/Experience.jpg')}}"
                     alt="..." class="img-thumbnail">
             </div>
             <div class="col-md-6">
@@ -133,83 +186,137 @@
             <div class="col-md-6">
                 <p class="content-heading" style="margin-top: 31px;">
                     @if(isset($AboutUsInfo->content_heading))
-                       {{$AboutUsInfo->content_heading}}
+                    {{$AboutUsInfo->content_heading}}
                     @endif
                 </p>
 
                 <h1 class="content-heading-description">
                     @if(isset($AboutUsInfo->content_description))
-                       {!!$AboutUsInfo->content_description!!}
+                    {!!$AboutUsInfo->content_description!!}
                     @endif
                 </h1>
             </div>
 
             <div class="col-md-6">
                 @if(isset($AboutUsInfo->content_image))
-                {{-- <img src="{{ asset('storage/photo/' .$category->image1) }}" width="205"
-                height="205" alt="product"> --}}
-                 <img src="{{ asset('storage/photo/' .$AboutUsInfo->content_image) }}" alt="..." class="img-thumbnail">
+                {{-- <img src="{{ asset('storage/photo/' .$category->image1) }}" width="205" height="205" alt="product">
+                --}}
+                <img src="{{ asset('storage/photo/' .$AboutUsInfo->content_image) }}" alt="..." class="img-thumbnail">
                 @endif
             </div>
         </div>
 
         <div class="col-md-12 center" style="background-color: rgb(16, 209, 235)">
+            <div class="col-md-6">
                 @if(isset($AboutUsInfo->vision_heading))
-                    <p class="vision_heading">{{$AboutUsInfo->vision_heading}}</p>
+                <h1 class="vission_heading">{{$AboutUsInfo->vision_heading}}</h1>
                 @endif
 
                 @if(isset($AboutUsInfo->vision_sub_heading))
-                   <p class="vision_heading">{{$AboutUsInfo->vision_sub_heading}}</p>
+                <h1 class="vission_sub_heading">{{$AboutUsInfo->vision_sub_heading}}</h1>
                 @endif
+            </div>
+
+            <div class="col-md-6">
+                @if(isset($AboutUsInfo->mission_description))
+                <blockquote class="vission_description">{!!$AboutUsInfo->mission_description!!}</blockquote>
+                @endif
+            </div>
         </div>
 
         <div class="col-md-12 center" style="background-color: rgb(226, 19, 157)">
-            <p>Our Mission</p>
-        </div>
+            <div class="col-md-6">
+                @if(isset($AboutUsInfo->mission_heading))
+                <h1 class="mission_heading">{{$AboutUsInfo->mission_heading}}</h1>
+                @endif
 
-
-        <div class="col-md-12 center" style="background-color: rgb(179, 187, 192)">
-            <p>Our Value</p>
-        </div>
-
-        <div class="col-md-12 center" style="background-color: rgb(179, 187, 192)">
-            <div class="col-md-4 containerss">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRWu7i6R9krXAMoqflVyrm4Us6kak273xZCTQfHgPSMW5ryTTsf_PBBPxrzy75E31plg&usqp=CAU"
-                    alt="..." class="img-thumbnail">
-                <div class="centered">Centered</div>
+                @if(isset($AboutUsInfo->mission_sub_heading))
+                <h1 class="mission_sub_heading">{{$AboutUsInfo->mission_sub_heading}}</h1>
+                @endif
             </div>
-            <div class="col-md-4 containerss">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRWu7i6R9krXAMoqflVyrm4Us6kak273xZCTQfHgPSMW5ryTTsf_PBBPxrzy75E31plg&usqp=CAU"
-                    alt="..." class="img-thumbnail">
-                <div class="centered">Centered</div>
-            </div>
-            <div class="col-md-4 containerss">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRWu7i6R9krXAMoqflVyrm4Us6kak273xZCTQfHgPSMW5ryTTsf_PBBPxrzy75E31plg&usqp=CAU"
-                    alt="..." class="img-thumbnail">
-                <div class="centered">Centered</div>
+
+            <div class="col-md-6">
+                @if(isset($AboutUsInfo->vision_description))
+                <blockquote class="mission_description">{!!$AboutUsInfo->vision_description!!}</blockquote>
+                @endif
             </div>
         </div>
 
-
-        <div class="col-md-12 center" style="background-color: rgb(226, 19, 157)">
-            our Value
-        </div>
 
         <div class="col-md-12 center" style="background-color: rgb(179, 187, 192)">
             <div class="col-md-6">
-                <p>Test test</p>
-                <p>Test test</p>
-                <p>Test test</p>
+                @if(isset($AboutUsInfo->value_heading))
+                <h1 class="mission_heading">{{$AboutUsInfo->value_heading}}</h1>
+                @endif
             </div>
+
             <div class="col-md-6">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzRWu7i6R9krXAMoqflVyrm4Us6kak273xZCTQfHgPSMW5ryTTsf_PBBPxrzy75E31plg&usqp=CAU"
-                    alt="..." class="img-thumbnail">
+                @if(isset($AboutUsInfo->value_description))
+                <blockquote class="mission_description">{!!$AboutUsInfo->value_description!!}</blockquote>
+                @endif
+            </div>
+        </div>
+
+        <div class="col-md-12 center" style="background-color: rgb(54, 165, 39)">
+            <div class="col-md-4 containerss">
+                @if(isset($AboutUsInfo->total_client_background_image))
+                <img src="{{ asset('storage/photo/' .$AboutUsInfo->total_client_background_image) }}"
+                    style=" opacity: 0.5;" alt="..." class="img-thumbnail">
+                @endif
+                @if(isset($AboutUsInfo->total_client))
+                <div class="centered">{{$AboutUsInfo->total_client}}</div>
+                @endif
+            </div>
+            <div class="col-md-4 containerss">
+                @if(isset($AboutUsInfo->total_year_background_image))
+                <img src="{{ asset('storage/photo/' .$AboutUsInfo->total_year_background_image) }}"
+                    style=" opacity: 0.5;" alt="..." class="img-thumbnail">
+                @endif
+                @if(isset($AboutUsInfo->total_year_record))
+                <div class="centered">{{$AboutUsInfo->total_year_record}}</div>
+                @endif
+            </div>
+            <div class="col-md-4 containerss">
+                @if(isset($AboutUsInfo->on_time_delivery_caption_backgroung_image))
+                <img src="{{ asset('storage/photo/' .$AboutUsInfo->on_time_delivery_caption_backgroung_image) }}"
+                    style=" opacity: 0.5;" alt="..." class="img-thumbnail">
+                @endif
+                @if(isset($AboutUsInfo->on_time_delivery_caption))
+                <div class="centered">{{$AboutUsInfo->on_time_delivery_caption}}</div>
+                @endif
             </div>
         </div>
 
 
-        <div class="col-md-12 center" style="background-color: rgb(223, 16, 95)">
-            <p>Making Marketing Smarter</p>
+        <div class="col-md-12 center" style="background-color: rgb(226, 19, 157); padding-bottom: 17px;">
+            <div class="col-md-6">
+                @if(isset($AboutUsInfo->our_value_title))
+                <h1 class="mission_heading">{{$AboutUsInfo->our_value_title}}</h1>
+                @endif
+
+                @if(isset($AboutUsInfo->our_value_heading))
+                <h1 class="mission_sub_heading">{{$AboutUsInfo->our_value_heading}}</h1>
+                @endif
+
+                @if(isset($AboutUsInfo->our_value_sub_heading))
+                <h1 class="mission_sub_heading">{{$AboutUsInfo->our_value_sub_heading}}</h1>
+                @endif
+
+                <button class="button">
+                    <span>Discover More</span>
+                </button>
+            </div>
+
+            <div class="col-md-6">
+                @if(isset($AboutUsInfo->vision_description))
+                <blockquote class="mission_description">{!!$AboutUsInfo->vision_description!!}</blockquote>
+                @endif
+            </div>
+        </div>
+
+
+        <div class="col-md-12 center" style="background-color: rgb(26, 198, 204)">
+            <p class="making_marketing">Making Marketing Smarter</p>
         </div>
     </div>
 </main>
