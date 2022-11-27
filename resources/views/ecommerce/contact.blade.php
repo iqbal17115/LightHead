@@ -12,6 +12,46 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+
+        .send-text {
+            display: block;
+            margin-top: 10px;
+            font: 400 12px 'Lato', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .send-button {
+            margin-top: 15px;
+            height: 34px;
+            width: 400px;
+            overflow: hidden;
+            transition: all .2s ease-in-out;
+        }
+
+        .alt-send-button {
+            width: 400px;
+            height: 34px;
+            transition: all .2s ease-in-out;
+        }
+
+        .send-text {
+            display: block;
+            margin-top: 10px;
+            font: 700 12px 'Lato', sans-serif;
+        }
+        .responsive-map {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 0;
+        }
+        .responsive-map iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
     </style>
 
     <nav aria-label="breadcrumb" class="breadcrumb-nav">
@@ -68,12 +108,36 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" id="contact">
                 <div class="col-sm-6 col-lg-4">
-                   
+                    <form id="contact-form" class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="name" placeholder="NAME" name="name"
+                                    value="" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email"
+                                    value="" required>
+                            </div>
+                        </div>
+                        <textarea class="form-control" rows="10" placeholder="MESSAGE" name="message" required>
+                        </textarea>
+                        <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+                            <div class="alt-send-button">
+                                <i class="fa fa-paper-plane"></i><span class="send-text">SEND</span>
+                            </div>
+                        </button>
+                    </form>
                 </div>
                 <div class="col-sm-6 col-lg-4">
-
+                    <div class="responsive-map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.7806761080233!2d-93.29138368446431!3d44.96844997909819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b32b6ee2c87c91%3A0xc20dff2748d2bd92!2sWalker+Art+Center!5e0!3m2!1sen!2sus!4v1514524647889"
+                            width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -84,3 +148,12 @@
     <div class="mb-8"></div>
 </main>
 @endsection
+
+<script>
+    document.querySelector('#contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.target.elements.name.value = '';
+    e.target.elements.email.value = '';
+    e.target.elements.message.value = '';
+  });
+</script>
