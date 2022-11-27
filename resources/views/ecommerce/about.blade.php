@@ -199,8 +199,6 @@
 
             <div class="col-md-6">
                 @if(isset($AboutUsInfo->content_image))
-                {{-- <img src="{{ asset('storage/photo/' .$category->image1) }}" width="205" height="205" alt="product">
-                --}}
                 <img src="{{ asset('storage/photo/' .$AboutUsInfo->content_image) }}" alt="..." class="img-thumbnail">
                 @endif
             </div>

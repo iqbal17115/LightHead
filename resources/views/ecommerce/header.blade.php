@@ -358,7 +358,7 @@
                                                 </li>
                                                 <li class="">
                                                     <p class="close-menu"></p>
-                                                    <a href="#" class="clearfix">
+                                                    <a href="{{'contact'}}" class="clearfix">
                                                         <strong>Contact Us</strong>
                                                     </a>
 
