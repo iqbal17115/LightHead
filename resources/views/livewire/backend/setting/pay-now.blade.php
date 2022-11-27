@@ -127,6 +127,20 @@
                                     @error('is_active') <span class="error">{{ $message }}</span> @enderror
                                 </div>
                             </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="basicpill-lastname-input">QR Image Check</label>
+                                        <select class="form-control" wire:model.lazy="is_qr_image">
+                                            {{-- <option value="">Select Status</option> --}}
+                                            <option value="1">Active</option>
+                                            <option value="0">Inactive</option>
+                                        </select>
+                                    @error('is_qr_image') <span class="error">{{ $message }}</span> @enderror
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -190,7 +204,7 @@
                     },
 
                     {
-                        title: 'Image',
+                        title: 'Sub Title',
                         data:  'sub_title',
                         name:  'sub_title'
                     },
@@ -218,6 +232,13 @@
                         data:  'is_active',
                         name:  'is_active'
                     },
+
+                    {
+                        title: 'QR Image Check',
+                        data:  'is_qr_image',
+                        name:  'is_qr_image'
+                    },
+
                     {
                         title: 'Action',
                         data:  'action',

@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 namespace App\Http\Controllers\FrontEnt;
-
 use App\Http\Controllers\Controller;
 use App\Models\Backend\ContactInfo\Contact;
 use App\Models\Backend\ContactUs\Message;
@@ -17,6 +16,7 @@ use App\Models\Backend\ProductInfo\Product;
 use App\Models\Backend\Setting\ShippingCharge;
 use App\Models\Backend\Setting\HowWeWillHelp;
 use App\Models\Backend\Setting\WhoTrust;
+use App\Models\Backend\Setting\PayNow;
 use App\Models\FrontEnd\AddToCard;
 use App\Models\FrontEnd\Order;
 use App\Models\FrontEnd\OrderDetail;
@@ -75,6 +75,19 @@ class HomeController extends Controller
     {
         return view('ecommerce.about');
     }
+
+    public function PayNow()
+    {
+         $PayNow = PayNow::where('is_qr_image', "1")->get();
+         $PayNowwithGeneral = PayNow::where('is_qr_image', "0")->get();
+
+        return view('ecommerce.pay-now',[
+            // $PayNow = PayNow::where('is_qr_image', "1")->get()->toarray(),
+            'PayNows' => $PayNow,
+            'PayNowwithGeneral' => $PayNowwithGeneral,
+        ]);
+    }
+
     public function Contact()
     {
         return view('ecommerce.contact');

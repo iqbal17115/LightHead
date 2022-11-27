@@ -15,6 +15,7 @@ class PayNow extends Component
     public $image;
     public $description;
     public $is_active = 1;
+    public $is_qr_image = 1;
     public $PayNowId = null;
     public $QueryUpdate = null;
     public $DeleteId;
@@ -41,6 +42,7 @@ class PayNow extends Component
         $this->payment_method_name = $this->QueryUpdate->payment_method_name;
         $this->description = $this->QueryUpdate->description;
         $this->is_active = $this->QueryUpdate->is_active;
+        $this->is_qr_image = $this->QueryUpdate->is_qr_image;
         $this->emit('modal', 'paymentModal');
     }
 
@@ -63,6 +65,7 @@ class PayNow extends Component
         $this->validate([
             'payment_method_name' => 'required',
             'is_active' => 'required',
+            'is_qr_image' => 'required'
         ]);
 
         if ($this->PayNowId) {
@@ -82,6 +85,7 @@ class PayNow extends Component
             $Query->image = basename($path);
         }
         $Query->is_active = $this->is_active;
+        $Query->is_qr_image = $this->is_qr_image;
         $Query->save();
         $this->reset();
         $this->paymentModal();

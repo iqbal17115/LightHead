@@ -1118,6 +1118,12 @@ class DatatableController extends Controller
             ->addColumn('is_active', function ($data) {
                 return $data->is_active == 1 ? 'Active' : 'Inactive';
             })
+
+            ->addColumn('is_qr_image', function ($data) {
+                return $data->is_qr_image == 1 ? 'Active' : 'Inactive';
+            })
+
+
             ->addColumn('image', function ($data) {
                 $url = asset('storage/photo/'.$data->image);
                 return '<img src="'.$url.'" style="height:92px; weight:138px;" alt="Image1" class="img-fluid mx-auto d-block"/>';

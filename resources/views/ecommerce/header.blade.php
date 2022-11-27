@@ -171,7 +171,6 @@
                                     </span>
                                     <div class="shopcart-inner">
                                         <p class="text-shopping-cart">
-
                                             My cart
                                         </p>
 
@@ -373,7 +372,7 @@
                                                 </li>
                                                 <li class="">
                                                     <p class="close-menu"></p>
-                                                    <a href="blog-page.html" class="clearfix">
+                                                    <a href="{{route('pay-now')}}" class="clearfix">
                                                         <strong>Pay Now</strong>
                                                         <span class="label"></span>
                                                     </a>
