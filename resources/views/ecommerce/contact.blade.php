@@ -70,33 +70,15 @@
 
             <div class="row">
                 <div class="col-sm-6 col-lg-4">
-                    <div class="feature-box text-center">
-                        <i class="sicon-location-pin"></i>
-                        <div class="feature-box-content">
-                            <h3>Address</h3>
-                            <h5>
-                                @if(isset($companyInfo->address))
-                                {{$companyInfo->address}}
-                                @endif
-                            </h5>
-                        </div>
-                    </div>
+                   
                 </div>
                 <div class="col-sm-6 col-lg-4">
-                    <div class="feature-box text-center">
-                        <i class="fa fa-mobile-alt"></i>
-                        <div class="feature-box-content">
-                            <h3>Phone Number</h3>
-                            <h5>
-                                @if(isset($companyInfo->phone))
-                                {{$companyInfo->phone}}
-                                @endif
-                            </h5>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 
     <div class="mb-8"></div>
