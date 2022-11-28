@@ -112,7 +112,7 @@
             <div class="row">
                 <!-- Logo -->
                 <div class="navbar-logo col-lg-2 col-md-3 col-sm-4 col-xs-12">
-                    <div class="logo"><a href="index.html"><img @if($companyInfo)
+                    <div class="logo"><a href="{{route('home')}}"><img @if($companyInfo)
                                 src="{{ asset('storage/photo/'.$companyInfo->logo) }}" @endif title="Your Store"
                                 alt="Your Store" style="height: 40px;" /></a></div>
                 </div>
@@ -365,7 +365,7 @@
                                                 </li>
                                                 <li class="">
                                                     <p class="close-menu"></p>
-                                                    <a href="blog-page.html" class="clearfix">
+                                                    <a href="{{route('view-carrer')}}" class="clearfix">
                                                         <strong>Career</strong>
                                                         <span class="label"></span>
                                                     </a>

@@ -17,6 +17,7 @@ use App\Models\Backend\Setting\ShippingCharge;
 use App\Models\Backend\Setting\HowWeWillHelp;
 use App\Models\Backend\Setting\WhoTrust;
 use App\Models\Backend\Setting\PayNow;
+use App\Models\Backend\Setting\Carrer;
 use App\Models\FrontEnd\AddToCard;
 use App\Models\FrontEnd\Order;
 use App\Models\FrontEnd\OrderDetail;
@@ -87,6 +88,17 @@ class HomeController extends Controller
             'PayNowwithGeneral' => $PayNowwithGeneral,
         ]);
     }
+
+
+    public function ViewCarrer()
+    {
+        $getjobcerculers = Carrer::get();
+        return view('ecommerce.carrer',[
+            'getjobcerculerss' => $getjobcerculers,
+        ]);
+    }
+
+
 
     public function Contact()
     {

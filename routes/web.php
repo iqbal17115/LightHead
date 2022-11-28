@@ -162,6 +162,7 @@ Route::get('order-details/{id?}', [HomeController::class, 'OrderDetail'])->name(
 Route::get('contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('about', [HomeController::class, 'About'])->name('about');
 Route::get('pay-now', [HomeController::class, 'PayNow'])->name('pay-now');
+Route::get('view-carrer', [HomeController::class, 'ViewCarrer'])->name('view-carrer');
 Route::get('privacy-policy', [HomeController::class, 'PrivacyPolicy'])->name('privacy-policy');
 Route::get('terms-condition', [HomeController::class, 'TermsAndCondition'])->name('terms-condition');
 Route::get('return-policy', [HomeController::class, 'ReturnPolicy'])->name('return-policy');
