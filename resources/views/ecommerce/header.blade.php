@@ -1,6 +1,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<style>
+    @media (min-width: 1200px) and (max-width: 1649px) {
+        .typeheader-1 .main-menu-w {
+            width: 57%;
+        }
+    }
+</style>
 <!-- Header Container  -->
 <header id="header" class="typeheader-1">
 
@@ -36,7 +42,7 @@
                                     <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
                                         <span class="icon icon-credit "></span> Contact:
                                         @if (isset($companyInfo->email))
-                                            {{ $companyInfo->email }}
+                                        {{ $companyInfo->email }}
                                         @endif
                                     </a>
                                     <ul class="">
@@ -370,6 +376,8 @@
                                                         <span class="label"></span>
                                                     </a>
                                                 </li>
+
+
                                                 <li class="">
                                                     <p class="close-menu"></p>
                                                     <a href="{{route('pay-now')}}" class="clearfix">
@@ -377,6 +385,15 @@
                                                         <span class="label"></span>
                                                     </a>
                                                 </li>
+
+                                                <li class="">
+                                                    <p class="close-menu"></p>
+                                                    <a href="{{route('blog-view')}}" class="clearfix">
+                                                        <strong>Blog</strong>
+                                                        <span class="label"></span>
+                                                    </a>
+                                                </li>
+
                                             </ul>
 
                                         </div>

@@ -100,6 +100,17 @@ class HomeController extends Controller
 
 
 
+    public function ViewBlog()
+    {
+        return view('ecommerce.',[
+            'getjobcerculerss' => $getjobcerculers,
+        ]);
+    }
+
+
+
+
+
     public function Contact()
     {
         return view('ecommerce.contact');
