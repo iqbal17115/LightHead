@@ -155,7 +155,7 @@
 </style>
 <main class="main about">
     <div class="page-header page-header-bg text-left">
-        <div class="col-md-12 center" style="background-color: aquamarine">
+        <div class="col-md-12 center" style="background-color: #221A69">
             <div class="col-md-6 ml-6">
                 <img src="{{ URL::asset('images/Experience.jpg')}}"
                     alt="..." class="img-thumbnail">
@@ -182,7 +182,7 @@
             </div>
         </div>
 
-        <div class="col-md-12 center" style="background-color: rgb(52, 105, 61)">
+        <div class="col-md-12 center" style="background-color: #630D7B">
             <div class="col-md-6">
                 <p class="content-heading" style="margin-top: 31px;">
                     @if(isset($AboutUsInfo->content_heading))
@@ -204,7 +204,7 @@
             </div>
         </div>
 
-        <div class="col-md-12 center" style="background-color: rgb(16, 209, 235)">
+        <div class="col-md-12 center" style="background-color: #A80391">
             <div class="col-md-6">
                 @if(isset($AboutUsInfo->vision_heading))
                 <h1 class="vission_heading">{{$AboutUsInfo->vision_heading}}</h1>
@@ -222,7 +222,7 @@
             </div>
         </div>
 
-        <div class="col-md-12 center" style="background-color: rgb(226, 19, 157)">
+        <div class="col-md-12 center" style="background-color: #830886">
             <div class="col-md-6">
                 @if(isset($AboutUsInfo->mission_heading))
                 <h1 class="mission_heading">{{$AboutUsInfo->mission_heading}}</h1>
@@ -241,7 +241,7 @@
         </div>
 
 
-        <div class="col-md-12 center" style="background-color: rgb(179, 187, 192)">
+        <div class="col-md-12 center" style="background-color: #1E1666">
             <div class="col-md-6">
                 @if(isset($AboutUsInfo->value_heading))
                 <h1 class="mission_heading">{{$AboutUsInfo->value_heading}}</h1>
@@ -255,7 +255,7 @@
             </div>
         </div>
 
-        <div class="col-md-12 center" style="background-color: rgb(54, 165, 39)">
+        <div class="col-md-12 center" style="background-color: #1E1666">
             <div class="col-md-4 containerss">
                 @if(isset($AboutUsInfo->total_client_background_image))
                 <img src="{{ asset('storage/photo/' .$AboutUsInfo->total_client_background_image) }}"
@@ -286,7 +286,7 @@
         </div>
 
 
-        <div class="col-md-12 center" style="background-color: rgb(226, 19, 157); padding-bottom: 17px;">
+        <div class="col-md-12 center" style="background-color: #4E0F75">
             <div class="col-md-6">
                 @if(isset($AboutUsInfo->our_value_title))
                 <h1 class="mission_heading">{{$AboutUsInfo->our_value_title}}</h1>
@@ -313,7 +313,7 @@
         </div>
 
 
-        <div class="col-md-12 center" style="background-color: rgb(26, 198, 204)">
+        <div class="col-md-12 center" style="background-color: #730A80">
             <p class="making_marketing">Making Marketing Smarter</p>
         </div>
     </div>

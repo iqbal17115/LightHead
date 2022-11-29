@@ -96,6 +96,7 @@
                         <h3>Popular Post</h3>
                         @foreach($allblogs as $allblog)
                         <img class="fakeimg" src="{{ asset('storage/photo/'.$allblog->image) }}"><br/>
+                         
                         @endforeach
                 </div>
                 <div class="card">
