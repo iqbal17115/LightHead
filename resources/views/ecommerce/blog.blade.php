@@ -1,112 +1,109 @@
 @extends('layouts.ecommerce')
 @section('content')
 <style>
-    .shadow {
-        background-color: rgb(226, 222, 220);
-        box-shadow: 4px 4px 4px 4px;
+    * {
+        box-sizing: border-box;
     }
 
-    .methodNamePosition {
-        position: relative;
+    /* Add a gray background color with some padding */
+    body {
+        font-family: Arial;
+        background: #f1f1f1;
     }
 
-    .methodName {
-        position: absolute;
-        top: 50%;
-        left: 10%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        font-size: 20px;
+    /* Header/Blog Title */
+    .header {
+        padding: 30px;
+        font-size: 40px;
+        text-align: center;
+        background: white;
     }
 
-    .second-method {
-        font-size: 20px;
+    /* Create two unequal columns that floats next to each other */
+    /* Left column */
+    .leftcolumn {
+        float: left;
+        width: 75%;
+    }
+
+    /* Right column */
+    .rightcolumn {
+        float: left;
+        width: 25%;
+        padding-left: 20px;
+    }
+
+    /* Fake image */
+    .fakeimg {
+        background-color: #aaa;
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Add a card effect for articles */
+    .card {
+        background-color: white;
+        padding: 20px;
         margin-top: 20px;
     }
 
-    .center {
-        display: flex;
-        justify-content: center;
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
     }
 
-    .page-header {
-        padding-bottom: 3px;
-        margin: -31px 0 20px;
-        border-bottom: 1px solid #eee;
+    /* Footer */
+    .footer {
+        padding: 20px;
+        text-align: center;
+        background: #ddd;
+        margin-top: 20px;
+    }
+
+    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 800px) {
+
+        .leftcolumn,
+        .rightcolumn {
+            width: 100%;
+            padding: 0;
+        }
     }
 </style>
 <main class="main about">
     <div class="page-header page-header-bg text-left">
-        <body>
-            <section class="container">
-              <div class="card-container">
-                <div class="card-image">
-                  <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="a brand new sports car" />
-                </div>
-                <div class="card-body">
-                  <span class="card-badge card-badge-blue">Car design</span>
-                  <h1>
-                    Why is the sports cars so well designed?
-                  </h1>
-                  <p class="card-subtitle">
-                    An exploration into the car design industry and how it works
-                  </p>
-                  <div class="card-author">
-                    <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="author avatar" />
-                    <div class="author-info">
-                      <p class="author-name">John Doe</p>
-                      <p class="post-timestamp">2h ago</p>
+        <div class="row" style="padding:20px;">
+            <div class="leftcolumn">
+                @foreach($allblogs as $allblog)
+                    <div class="card">
+                        <h2>{{$allblog->title}}</h2>
+                        <h5 style="font-size: 20px;">Posted at {{$allblog->created_at->format('d M Y') }}</h5>
+                        <img class="fakeimg" src="{{ asset('storage/photo/'.$allblog->image) }}">
+                        <p>{{$allblog->sub_title}}</p>
+                        <p>{!!$allblog->description!!}</p>
                     </div>
-                  </div>
+                @endforeach
+            </div>
+            <div class="rightcolumn">
+                <div class="card">
+                    <h2>About Me</h2>
+                    <div class="fakeimg" style="height:100px;">Image</div>
+                    <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
                 </div>
-              </div>
-
-              <div class="card-container">
-                <div class="card-image">
-                  <img src="https://images.unsplash.com/photo-1504728078670-d0a59873c8c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="a landscape view full of baloons" />
+                <div class="card">
+                        <h3>Popular Post</h3>
+                        @foreach($allblogs as $allblog)
+                        <img class="fakeimg" src="{{ asset('storage/photo/'.$allblog->image) }}"><br/>
+                        @endforeach
                 </div>
-                <div class="card-body">
-                  <span class="card-badge card-badge-purple">Adventure</span>
-                  <h1>
-                    Discover new adventures over the world
-                  </h1>
-                  <p class="card-subtitle">
-                    Adventure and baloons are trends these days
-                  </p>
-                  <div class="card-author">
-                    <img src="https://images.unsplash.com/photo-1504728078670-d0a59873c8c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="author avatar" />
-                    <div class="author-info">
-                      <p class="author-name">John Doe</p>
-                      <p class="post-timestamp">2h ago</p>
-                    </div>
-                  </div>
+                <div class="card">
+                    <h3>Follow Me</h3>
+                    <p>Some text..</p>
                 </div>
-              </div>
-
-              <div class="card-container">
-                <div class="card-image">
-                  <img src="https://images.unsplash.com/photo-1506422748879-887454f9cdff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="a city full of buildings" />
-                </div>
-                <div class="card-body">
-                  <span class="card-badge card-badge-pink">Engineering</span>
-                  <h1>
-                    Living in downtown in the biggest cities
-                  </h1>
-                  <p class="card-subtitle">
-                    Citizens of the biggest cities in the world talk about their lives
-                  </p>
-                  <div class="card-author">
-                    <img src="https://images.unsplash.com/photo-1506422748879-887454f9cdff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="author avatar" />
-                    <div class="author-info">
-                      <p>John Doe</p>
-                      <p>2h ago</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </body>
-        </html>
+            </div>
+        </div>
     </div>
 </main>
 @endsection

@@ -18,6 +18,7 @@ use App\Models\Backend\Setting\HowWeWillHelp;
 use App\Models\Backend\Setting\WhoTrust;
 use App\Models\Backend\Setting\PayNow;
 use App\Models\Backend\Setting\Carrer;
+use App\Models\Backend\Blog\Blog;
 use App\Models\FrontEnd\AddToCard;
 use App\Models\FrontEnd\Order;
 use App\Models\FrontEnd\OrderDetail;
@@ -98,18 +99,13 @@ class HomeController extends Controller
         ]);
     }
 
-
-
     public function ViewBlog()
     {
-        return view('ecommerce.',[
-            'getjobcerculerss' => $getjobcerculers,
+        $allBlog = Blog::get();
+        return view('ecommerce.blog',[
+            'allblogs' => $allBlog
         ]);
     }
-
-
-
-
 
     public function Contact()
     {
