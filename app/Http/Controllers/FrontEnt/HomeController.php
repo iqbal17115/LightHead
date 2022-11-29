@@ -600,6 +600,16 @@ class HomeController extends Controller
         ]);
     }
 
+    public function serviceDetails($id = null)
+    {
+        // $ProductDetail = Product::whereId($id)->first();
+        // $data['products'] = $this->product->with(['ProductImageFirst', 'ProductImageLast'])->where('id', '!=', $id)->whereCategoryId($ProductDetail->category_id)->whereIsActive(1)->get()->toArray();
+        return view('ecommerce.service-details', [
+            // 'productDetails' => $ProductDetail,
+            // 'data' => $data,
+        ]);
+    }
+
     public function productSearch(Request $request)
     {
         $query = $this->product->with(['ProductImageFirst', 'ProductImageLast'])->whereIsActive(1);

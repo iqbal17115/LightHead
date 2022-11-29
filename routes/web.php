@@ -164,6 +164,7 @@ Route::get('about', [HomeController::class, 'About'])->name('about');
 Route::get('pay-now', [HomeController::class, 'PayNow'])->name('pay-now');
 Route::get('view-carrer', [HomeController::class, 'ViewCarrer'])->name('view-carrer');
 Route::get('blog-view', [HomeController::class, 'ViewBlog'])->name('blog-view');
+Route::get('service-details/{id?}', [HomeController::class, 'serviceDetails'])->name('service-details');
 Route::get('privacy-policy', [HomeController::class, 'PrivacyPolicy'])->name('privacy-policy');
 Route::get('terms-condition', [HomeController::class, 'TermsAndCondition'])->name('terms-condition');
 Route::get('return-policy', [HomeController::class, 'ReturnPolicy'])->name('return-policy');
