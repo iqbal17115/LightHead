@@ -242,9 +242,9 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
-    public function EditContactById(Request $request)
+    public function Sendmessage(Request $request)
     {
-        $Query = User::find(Auth::user()->id);
+        $Query = new message();
         $Query->name = $request->name;
         $Query->mobile = $request->mobile;
         $Query->email = $request->email;
@@ -568,26 +568,21 @@ class HomeController extends Controller
     public function messages(Request $request)
     {
         $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'phone' => 'required',
+            'name' => 'required',
             'subject' => 'required',
             'message' => 'required',
         ]);
 
         DB::transaction(function () use ($request) {
             $Query = new Message();
-            $Query->first_name = $request->first_name;
-            $Query->last_name = $request->last_name;
+            $Query->name = $request->name;
             $Query->email = $request->email;
-            $Query->phone = $request->phone;
             $Query->subject = $request->subject;
             $Query->message = $request->message;
-            $Query->user_id = 1;
             $Query->save();
         });
-
-        return redirect()->back()->with('message', 'Complain has been sent Successfully');
+        
+        return redirect()->back()->with('success', 'Message has been sent Successfully');
     }
 
     public function productDetails($id = null)

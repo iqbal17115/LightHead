@@ -160,6 +160,7 @@ Route::get('product-details/{id?}', [HomeController::class, 'productDetails'])->
 Route::get('my-account', [HomeController::class, 'MyAccount'])->name('my-account');
 Route::get('order-details/{id?}', [HomeController::class, 'OrderDetail'])->name('order-details');
 Route::get('contact', [HomeController::class, 'Contact'])->name('contact');
+Route::get('contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('about', [HomeController::class, 'About'])->name('about');
 Route::get('pay-now', [HomeController::class, 'PayNow'])->name('pay-now');
 Route::get('view-carrer', [HomeController::class, 'ViewCarrer'])->name('view-carrer');

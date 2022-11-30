@@ -39,12 +39,14 @@
             margin-top: 10px;
             font: 700 12px 'Lato', sans-serif;
         }
+
         .responsive-map {
             overflow: hidden;
             padding-bottom: 56.25%;
             position: relative;
             height: 0;
         }
+
         .responsive-map iframe {
             left: 0;
             top: 0;
@@ -110,7 +112,9 @@
 
             <div class="row" id="contact">
                 <div class="col-sm-6 col-lg-4">
-                    <form id="contact-form" class="form-horizontal" role="form">
+                    <form id="contact-form" method="POST" action="{{ route('send-message') }}" class="form-horizontal"
+                        role="form">
+                        @csrf
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="name" placeholder="NAME" name="name"
@@ -123,7 +127,15 @@
                                     value="" required>
                             </div>
                         </div>
-                        <textarea class="form-control" rows="10" placeholder="MESSAGE" name="message" required>
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="email" placeholder="Subject" name="subject"
+                                    value="" required>
+                            </div>
+                        </div>
+
+                        <textarea class="form-control" rows="5" placeholder="MESSAGE" name="message" required>
                         </textarea>
                         <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
                             <div class="alt-send-button">
@@ -131,6 +143,13 @@
                             </div>
                         </button>
                     </form>
+
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong>{{ $message }}</strong>
+                    </div>
+                    @endif
                 </div>
                 <div class="col-sm-6 col-lg-4">
                     <div class="responsive-map">
