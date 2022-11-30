@@ -5,7 +5,7 @@
 
     <style>
         .bg-image {
-            background-image: url('/images/contactbgimage.jpg');
+            background-image: url('images/contactbgimage.jpg');
             min-height: 500px;
             background-attachment: fixed;
             background-position: center;
@@ -42,9 +42,10 @@
 
         .responsive-map {
             overflow: hidden;
-            padding-bottom: 56.25%;
+            padding-bottom: 75.25%;
             position: relative;
             height: 0;
+            width: 200%;
         }
 
         .responsive-map iframe {
@@ -111,7 +112,7 @@
             </div>
 
             <div class="row" id="contact">
-                <div class="col-sm-6 col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <form id="contact-form" method="POST" action="{{ route('send-message') }}" class="form-horizontal"
                         role="form">
                         @csrf
@@ -151,7 +152,7 @@
                     </div>
                     @endif
                 </div>
-                <div class="col-sm-6 col-lg-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="responsive-map">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.7806761080233!2d-93.29138368446431!3d44.96844997909819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b32b6ee2c87c91%3A0xc20dff2748d2bd92!2sWalker+Art+Center!5e0!3m2!1sen!2sus!4v1514524647889"
